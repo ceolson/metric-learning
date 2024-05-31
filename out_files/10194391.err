@@ -1,0 +1,6 @@
+/n/home10/colson/metric-learning/metric_learning_experiment.py:19: DeprecationWarning: `np.math` is a deprecated alias for the standard library `math` module (Deprecated Numpy 1.25). Replace usages of `np.math` with `math`
+  Astar = np.random.normal(0, 1, size=(p, r)) / np.math.sqrt(p)
+/n/home10/colson/metric-learning/metric_learning_experiment.py:36: DeprecationWarning: `np.math` is a deprecated alias for the standard library `math` module (Deprecated Numpy 1.25). Replace usages of `np.math` with `math`
+  prob = 1 / (1 + np.math.exp(m_dist2(X[i], X[k], Kstar) - m_dist2(X[i], X[j], Kstar)))
+/var/slurmd/spool/slurmd/job10194391/slurm_script: line 13: 3033629 Killed                  python metric_learning_experiment.py
+slurmstepd: error: Detected 1 oom_kill event in StepId=10194391.batch. Some of the step tasks have been OOM Killed.

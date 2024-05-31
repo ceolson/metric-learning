@@ -1,0 +1,12 @@
+/n/home10/colson/metric-learning/metric_learning_experiment.py:16: DeprecationWarning: `np.math` is a deprecated alias for the standard library `math` module (Deprecated Numpy 1.25). Replace usages of `np.math` with `math`
+  Astar = np.random.normal(0, 1, size=(p, r)) / np.math.sqrt(p)
+/n/home10/colson/metric-learning/metric_learning_experiment.py:33: DeprecationWarning: `np.math` is a deprecated alias for the standard library `math` module (Deprecated Numpy 1.25). Replace usages of `np.math` with `math`
+  prob = 1 / (1 + np.math.exp(m_dist2(X[i], X[k], Kstar) - m_dist2(X[i], X[j], Kstar)))
+Traceback (most recent call last):
+  File "/n/home10/colson/metric-learning/metric_learning_experiment.py", line 142, in <module>
+    loss = L(A)
+  File "/n/home10/colson/metric-learning/metric_learning_experiment.py", line 95, in L
+    yMtAs = torch.einsum('bij,jk->bik', triplets, A)
+  File "/n/home10/colson/.local/lib/python3.10/site-packages/torch/functional.py", line 377, in einsum
+    return _VF.einsum(equation, operands)  # type: ignore[attr-defined]
+torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 2.84 GiB. GPU 0 has a total capacty of 39.39 GiB of which 1.12 GiB is free. Including non-PyTorch memory, this process has 38.26 GiB memory in use. Of the allocated memory 37.86 GiB is allocated by PyTorch, and 3.23 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF

@@ -1,0 +1,13 @@
+Generating synthetic data...
+Initializing...
+Starting gradient descent...
+10 tensor(0.6931, dtype=torch.float64, grad_fn=<MeanBackward0>) 1.8759219373194111
+20 tensor(0.6931, dtype=torch.float64, grad_fn=<MeanBackward0>) 1.8759219373192573
+30 tensor(0.6931, dtype=torch.float64, grad_fn=<MeanBackward0>) 1.8759219369628906
+40 tensor(0.6931, dtype=torch.float64, grad_fn=<MeanBackward0>) 1.8759210923927458
+50 tensor(0.6876, dtype=torch.float64, grad_fn=<MeanBackward0>) 1.873971888628187
+60 tensor(0.4920, dtype=torch.float64, grad_fn=<MeanBackward0>) 1.7471909272548396
+70 tensor(0.4409, dtype=torch.float64, grad_fn=<MeanBackward0>) 1.6168987961620231
+80 tensor(0.4295, dtype=torch.float64, grad_fn=<MeanBackward0>) 1.538917895445839
+90 tensor(0.4253, dtype=torch.float64, grad_fn=<MeanBackward0>) 1.4871016745184167
+100 tensor(0.4215, dtype=torch.float64, grad_fn=<MeanBackward0>) 1.4445374285518715

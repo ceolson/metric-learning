@@ -1,0 +1,15 @@
+/n/home10/colson/metric-learning/metric_learning_experiment.py:14: DeprecationWarning: `np.math` is a deprecated alias for the standard library `math` module (Deprecated Numpy 1.25). Replace usages of `np.math` with `math`
+  Astar = np.random.normal(0, 1, size=(p, r)) / np.math.sqrt(p)
+/n/home10/colson/metric-learning/metric_learning_experiment.py:31: DeprecationWarning: `np.math` is a deprecated alias for the standard library `math` module (Deprecated Numpy 1.25). Replace usages of `np.math` with `math`
+  prob = 1 / (1 + np.math.exp(m_dist2(X[i], X[k], Kstar) - m_dist2(X[i], X[j], Kstar)))
+Traceback (most recent call last):
+  File "/n/home10/colson/metric-learning/metric_learning_experiment.py", line 139, in <module>
+    loss = L(A)
+           ^^^^
+  File "/n/home10/colson/metric-learning/metric_learning_experiment.py", line 94, in L
+    yMtAATs = torch.einsum('bij,jk->bik', yMtAs, torch.transpose(A, 0, 1))
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/n/home10/colson/.conda/envs/folktables/lib/python3.12/site-packages/torch/functional.py", line 377, in einsum
+    return _VF.einsum(equation, operands)  # type: ignore[attr-defined]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: [enforce fail at alloc_cpu.cpp:83] err == 0. DefaultCPUAllocator: can't allocate memory: you tried to allocate 107526943776 bytes. Error code 12 (Cannot allocate memory)

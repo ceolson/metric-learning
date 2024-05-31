@@ -1,0 +1,13 @@
+/n/home10/colson/metric-learning/metric_learning_experiment.py:14: DeprecationWarning: `np.math` is a deprecated alias for the standard library `math` module (Deprecated Numpy 1.25). Replace usages of `np.math` with `math`
+  Astar = np.random.normal(0, 1, size=(p, r)) / np.math.sqrt(p)
+/n/home10/colson/metric-learning/metric_learning_experiment.py:31: DeprecationWarning: `np.math` is a deprecated alias for the standard library `math` module (Deprecated Numpy 1.25). Replace usages of `np.math` with `math`
+  prob = 1 / (1 + np.math.exp(m_dist2(X[i], X[k], Kstar) - m_dist2(X[i], X[j], Kstar)))
+Traceback (most recent call last):
+  File "/n/home10/colson/metric-learning/metric_learning_experiment.py", line 117, in <module>
+    X, S, y, Astar, Kstar = generate_synthetic_data(n, r, p, acs_data_cleaned)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/n/home10/colson/metric-learning/metric_learning_experiment.py", line 32, in generate_synthetic_data
+    yt = np.random.choice([1, -1], p=[prob, 1 - prob])
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "numpy/random/mtrand.pyx", line 970, in numpy.random.mtrand.RandomState.choice
+ValueError: probabilities contain NaN

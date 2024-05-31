@@ -1,0 +1,51 @@
+(544, 46)
+Variances: COW        3.698269e+00
+DDRS       2.511916e-02
+DOUT       4.056643e-02
+DPHY       9.542574e-02
+DREM       3.887715e-02
+GCL        6.667411e-02
+INTP       1.817933e+08
+JWMNP      4.825739e+02
+JWRIP      5.173735e-01
+LANX       3.718110e-02
+MARHM      7.312317e-03
+MARHT      4.818411e-01
+MARHW      2.161196e-02
+MARHYP     2.099170e+02
+MIG        1.756987e-01
+MIL        5.438197e-02
+NWAB       1.755904e-01
+NWAV       7.565675e-01
+NWLA       1.785797e-01
+NWLK       1.837152e-01
+NWRE       7.181982e-02
+OIP        3.505174e+06
+PAP        2.008154e+05
+RETP       1.268267e+08
+SCH        1.280671e-02
+SCHL       8.325859e+00
+SEMP       3.504866e+08
+SSIP       4.287808e+06
+SSP        5.431267e+07
+WAGP       1.885982e+09
+WKHP       2.019646e+02
+WKW        2.106756e+00
+WRK        1.838235e-03
+DRIVESP    2.125311e-01
+INDP       4.509685e+06
+JWAP       1.484593e+03
+JWDP       7.288948e+02
+MSP        1.720531e+00
+OCCP       4.354815e+06
+PAOC       4.371141e-02
+PERNP      2.141391e+09
+PINCP      2.939490e+09
+POVPIP     1.830737e+04
+POWPUMA    8.620842e+05
+POWSP      1.240099e+01
+FHINS3C    9.251435e-02
+dtype: float64
+Generating synthetic data...
+Initializing...
+Starting gradient descent...

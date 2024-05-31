@@ -1,0 +1,251 @@
+(544, 46)
+Variances: COW        3.698269e+00
+DDRS       2.511916e-02
+DOUT       4.056643e-02
+DPHY       9.542574e-02
+DREM       3.887715e-02
+GCL        6.667411e-02
+INTP       1.817933e+08
+JWMNP      4.825739e+02
+JWRIP      5.173735e-01
+LANX       3.718110e-02
+MARHM      7.312317e-03
+MARHT      4.818411e-01
+MARHW      2.161196e-02
+MARHYP     2.099170e+02
+MIG        1.756987e-01
+MIL        5.438197e-02
+NWAB       1.755904e-01
+NWAV       7.565675e-01
+NWLA       1.785797e-01
+NWLK       1.837152e-01
+NWRE       7.181982e-02
+OIP        3.505174e+06
+PAP        2.008154e+05
+RETP       1.268267e+08
+SCH        1.280671e-02
+SCHL       8.325859e+00
+SEMP       3.504866e+08
+SSIP       4.287808e+06
+SSP        5.431267e+07
+WAGP       1.885982e+09
+WKHP       2.019646e+02
+WKW        2.106756e+00
+WRK        1.838235e-03
+DRIVESP    2.125311e-01
+INDP       4.509685e+06
+JWAP       1.484593e+03
+JWDP       7.288948e+02
+MSP        1.720531e+00
+OCCP       4.354815e+06
+PAOC       4.371141e-02
+PERNP      2.141391e+09
+PINCP      2.939490e+09
+POVPIP     1.830737e+04
+POWPUMA    8.620842e+05
+POWSP      1.240099e+01
+FHINS3C    9.251435e-02
+dtype: float64
+Generating synthetic data...
+Initializing...
+Starting gradient descent...
+10 tensor(0.6931, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 1.5787875971593575
+20 tensor(0.6931, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 1.5787875971593572
+30 tensor(0.6931, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 1.578787597159347
+40 tensor(0.6931, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 1.5787875971590704
+50 tensor(0.6931, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 1.5787875971514063
+60 tensor(0.6931, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 1.578787596939248
+70 tensor(0.6931, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 1.5787875910621108
+80 tensor(0.6931, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 1.5787874281015768
+90 tensor(0.6931, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 1.5787829060022551
+100 tensor(0.6926, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 1.5786578593270473
+110 tensor(0.6816, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 1.5755152633670877
+120 tensor(0.6055, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 1.5417880625800149
+130 tensor(0.5304, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 1.4716893009034053
+140 tensor(0.4936, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 1.408025860363899
+150 tensor(0.4751, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 1.359893375844833
+160 tensor(0.4600, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 1.3186061325610376
+170 tensor(0.4422, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 1.2759447623562454
+180 tensor(0.4254, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 1.2314862044832844
+190 tensor(0.4121, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 1.1882322222880055
+200 tensor(0.4024, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 1.1483495242120219
+210 tensor(0.3957, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 1.1129733728876838
+220 tensor(0.3913, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 1.082224579369642
+230 tensor(0.3882, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 1.0556586630252875
+240 tensor(0.3860, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 1.0326535632736789
+250 tensor(0.3843, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 1.0125999876461078
+260 tensor(0.3830, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.9949676183474397
+270 tensor(0.3820, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.9793171962984871
+280 tensor(0.3811, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.9652930109265586
+290 tensor(0.3804, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.9526088758973813
+300 tensor(0.3797, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.9410309870525899
+310 tensor(0.3791, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.9303552036860538
+320 tensor(0.3785, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.9203685216558024
+330 tensor(0.3776, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.9107681226138832
+340 tensor(0.3761, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.9009780018406636
+350 tensor(0.3731, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.8897633010172814
+360 tensor(0.3671, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.8746407149944194
+370 tensor(0.3566, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.8517669974857911
+380 tensor(0.3424, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.8179391641380389
+390 tensor(0.3281, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.773974749003437
+400 tensor(0.3167, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.7243626351102478
+410 tensor(0.3084, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.6736284856167436
+420 tensor(0.3025, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.6246884162332554
+430 tensor(0.2981, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.5790824816304269
+440 tensor(0.2949, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.5374607901318165
+450 tensor(0.2925, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.499958268919627
+460 tensor(0.2907, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.46641679943790104
+470 tensor(0.2893, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.4365350649119937
+480 tensor(0.2882, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.40996583724503416
+490 tensor(0.2874, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.3863570010898817
+500 tensor(0.2868, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.36537346611763444
+510 tensor(0.2862, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.3467076766938246
+520 tensor(0.2858, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.3300821644837534
+530 tensor(0.2855, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.31524863005485865
+540 tensor(0.2852, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.30198607822748497
+550 tensor(0.2850, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.2900986603941821
+560 tensor(0.2848, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.27941349291128936
+570 tensor(0.2846, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.2697785955997719
+580 tensor(0.2845, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.2610609154468258
+590 tensor(0.2844, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.25314438629652425
+600 tensor(0.2843, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.24592804057592257
+610 tensor(0.2842, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.23932421979471197
+620 tensor(0.2842, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.23325692211127028
+630 tensor(0.2841, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.2276603060462363
+640 tensor(0.2841, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.2224773542189862
+650 tensor(0.2840, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.21765869185004566
+660 tensor(0.2840, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.21316154991284864
+670 tensor(0.2839, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.20894886049584452
+680 tensor(0.2839, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.2049884711042474
+690 tensor(0.2839, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.20125246469824015
+700 tensor(0.2839, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.1977165728723969
+710 tensor(0.2838, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.19435967049505268
+720 tensor(0.2838, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.1911633411893745
+730 tensor(0.2838, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.1881115041464541
+740 tensor(0.2838, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.18519009384910623
+750 tensor(0.2838, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.18238678531378535
+760 tensor(0.2837, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.17969075840562743
+770 tensor(0.2837, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.1770924956384593
+780 tensor(0.2837, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.17458360863576922
+790 tensor(0.2837, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.1721566891029183
+800 tensor(0.2837, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.16980518075093962
+810 tensor(0.2837, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.16752326912520416
+820 tensor(0.2837, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.16530578673575358
+830 tensor(0.2837, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.1631481312679327
+840 tensor(0.2837, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.1610461949795416
+850 tensor(0.2837, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.15899630367097403
+860 tensor(0.2837, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.15699516385402898
+870 tensor(0.2836, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.15503981694891236
+880 tensor(0.2836, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.15312759951239338
+890 tensor(0.2836, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.15125610864753172
+900 tensor(0.2836, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.14942317187065082
+910 tensor(0.2836, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.1476268208176102
+920 tensor(0.2836, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.1458652682617501
+930 tensor(0.2836, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.14413688799257804
+940 tensor(0.2836, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.14244019716941292
+950 tensor(0.2836, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.14077384081955582
+960 tensor(0.2836, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.13913657819762695
+970 tensor(0.2836, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.13752727076275234
+980 tensor(0.2836, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.13594487156438734
+990 tensor(0.2836, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.13438841585663405
+1000 tensor(0.2836, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.13285701278570852
+1010 tensor(0.2836, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.131349838016405
+1020 tensor(0.2836, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.1298661271815208
+1030 tensor(0.2836, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.12840517005372115
+1040 tensor(0.2836, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.12696630535262854
+1050 tensor(0.2836, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.1255489161113414
+1060 tensor(0.2836, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.12415242553640825
+1070 tensor(0.2835, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.12277629330373976
+1080 tensor(0.2835, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.12142001224023162
+1090 tensor(0.2835, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.12008310534716823
+1100 tensor(0.2835, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.11876512312692374
+1110 tensor(0.2835, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.11746564117919359
+1120 tensor(0.2835, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.11618425803708197
+1130 tensor(0.2835, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.11492059321692887
+1140 tensor(0.2835, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.11367428545885179
+1150 tensor(0.2835, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.11244499113767825
+1160 tensor(0.2835, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.11123238282629726
+1170 tensor(0.2835, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.11003614799551797
+1180 tensor(0.2835, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.10885598783632737
+1190 tensor(0.2835, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.10769161619201884
+1200 tensor(0.2835, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.10654275858905318
+1210 tensor(0.2835, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.10540915135673573
+1220 tensor(0.2835, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.10429054082686884
+1230 tensor(0.2835, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.10318668260549008
+1240 tensor(0.2835, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.10209734090964373
+1250 tensor(0.2835, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.10102228796287821
+1260 tensor(0.2835, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.09996130344381741
+1270 tensor(0.2835, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.09891417398273997
+1280 tensor(0.2835, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.09788069270161674
+1290 tensor(0.2835, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.09686065879352089
+1300 tensor(0.2835, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.09585387713773291
+1310 tensor(0.2835, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.09486015794723178
+1320 tensor(0.2835, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.09387931644558958
+1330 tensor(0.2835, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.09291117257057914
+1340 tensor(0.2835, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.09195555070206736
+1350 tensor(0.2835, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.0910122794119992
+1360 tensor(0.2835, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.09008119123449028
+1370 tensor(0.2835, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.08916212245423251
+1380 tensor(0.2835, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.0882549129115884
+1390 tensor(0.2835, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.08735940582290136
+1400 tensor(0.2835, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.08647544761468778
+1410 tensor(0.2835, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.08560288777049906
+1420 tensor(0.2835, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.08474157868935497
+1430 tensor(0.2835, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.08389137555474936
+1440 tensor(0.2835, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.08305213621332093
+1450 tensor(0.2835, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.08222372106236354
+1460 tensor(0.2835, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.08140599294542644
+1470 tensor(0.2835, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.08059881705531939
+1480 tensor(0.2835, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.07980206084390243
+1490 tensor(0.2835, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.07901559393809157
+1500 tensor(0.2835, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.07823928806156527
+1510 tensor(0.2835, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.0774730169616996
+1520 tensor(0.2835, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.07671665634130316
+1530 tensor(0.2835, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.07597008379475882
+1540 tensor(0.2835, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.07523317874821513
+1550 tensor(0.2835, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.07450582240350022
+1560 tensor(0.2835, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.07378789768545894
+1570 tensor(0.2835, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.0730792891924417
+1580 tensor(0.2835, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.07237988314969462
+1590 tensor(0.2835, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.07168956736542302
+1600 tensor(0.2835, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.07100823118932006
+1610 tensor(0.2835, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.0703357654733691
+1620 tensor(0.2835, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.06967206253474562
+1630 tensor(0.2835, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.06901701612065854
+1640 tensor(0.2835, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.06837052137498457
+1650 tensor(0.2835, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.06773247480656105
+1660 tensor(0.2835, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.0671027742590153
+1670 tensor(0.2835, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.06648131888201705
+1680 tensor(0.2835, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.06586800910385059
+1690 tensor(0.2835, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.06526274660521306
+1700 tensor(0.2835, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.06466543429415057
+1710 tensor(0.2835, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.06407597628205372
+1720 tensor(0.2835, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.06349427786063877
+1730 tensor(0.2835, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.06292024547984716
+1740 tensor(0.2835, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.06235378672660283
+1750 tensor(0.2835, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.061794810304369355
+1760 tensor(0.2835, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.061243226013456
+1770 tensor(0.2835, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.06069894473202417
+1780 tensor(0.2835, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.06016187839775102
+1790 tensor(0.2834, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.05963193999010931
+1800 tensor(0.2834, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.05910904351322657
+1810 tensor(0.2834, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.058593103979289435
+1820 tensor(0.2834, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.05808403739246184
+1830 tensor(0.2834, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.057581760733287586
+1840 tensor(0.2834, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.05708619194355125
+1850 tensor(0.2834, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.056597249911572355
+1860 tensor(0.2834, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.05611485445791056
+1870 tensor(0.2834, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.05563892632146062
+1880 tensor(0.2834, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.055169387145917806
+1890 tensor(0.2834, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.054706159466596474
+1900 tensor(0.2834, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.05424916669758447
+1910 tensor(0.2834, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.05379833311921924
+1920 tensor(0.2834, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.053353583865870385
+1930 tensor(0.2834, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.05291484491401657
+1940 tensor(0.2834, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.05248204307060412
+1950 tensor(0.2834, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.052055105961676264
+1960 tensor(0.2834, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.05163396202126304
+1970 tensor(0.2834, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.05121854048052148
+1980 tensor(0.2834, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.050808771357117144
+1990 tensor(0.2834, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.05040458544483962
+2000 tensor(0.2834, device='cuda:0', dtype=torch.float64, grad_fn=<MeanBackward0>) 0.05000591430344237

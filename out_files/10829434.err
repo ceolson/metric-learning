@@ -1,0 +1,12 @@
+/n/home10/colson/metric-learning/metric_learning_experiment.py:19: DeprecationWarning: `np.math` is a deprecated alias for the standard library `math` module (Deprecated Numpy 1.25). Replace usages of `np.math` with `math`
+  Astar = np.random.normal(0, 1, size=(p, r)) / np.math.sqrt(p)
+/n/home10/colson/metric-learning/metric_learning_experiment.py:36: DeprecationWarning: `np.math` is a deprecated alias for the standard library `math` module (Deprecated Numpy 1.25). Replace usages of `np.math` with `math`
+  prob = 1 / (1 + np.math.exp(m_dist2(X[i], X[k], Kstar) - m_dist2(X[i], X[j], Kstar)))
+Traceback (most recent call last):
+  File "/n/home10/colson/metric-learning/metric_learning_experiment.py", line 139, in <module>
+    loss = L(A)
+           ^^^^
+  File "/n/home10/colson/metric-learning/metric_learning_experiment.py", line 96, in L
+    triplets = torch.tensor(signed_M, requires_grad=True)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: [enforce fail at alloc_cpu.cpp:83] err == 0. DefaultCPUAllocator: can't allocate memory: you tried to allocate 198801571200 bytes. Error code 12 (Cannot allocate memory)
