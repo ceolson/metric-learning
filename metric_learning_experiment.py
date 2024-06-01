@@ -28,7 +28,7 @@ def generate_synthetic_data(n, r, p, data, S=None):
                         Sbar.append((i, j, k))
         Sbar = cp.array(Sbar)
     
-        choices = cp.random.choice([False, True], size=len(Sbar), replace=True, p=[0.7, 0.3])
+        choices = cp.random.choice([False, True], size=len(Sbar), replace=True, p=[0.9, 0.1])
         S = Sbar[choices, :]
 
     M = []
@@ -156,7 +156,7 @@ signed_M = np.multiply(M, np.reshape(y, (-1, 1, 1)))
 print("Starting gradient descent...")
 
 A_iterates = []
-A = torch.tensor(A0.real, requires_grad=True, device="cuda")
+A = torch.tensor(A0.get(), requires_grad=True, device="cuda")
 dists = []
 
 for iterate in range(1000):
