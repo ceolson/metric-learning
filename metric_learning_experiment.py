@@ -146,8 +146,8 @@ print(cp.linalg.norm(Astar - A0))
 M = []
 for t in S:
     i, j, k = t
-    Mt = np.outer(X[i], X[k]) + np.outer(X[k], X[i]) - np.outer(X[i], X[j]) - np.outer(X[j], X[i]) + np.outer(X[j], X[j]) - np.outer(X[k], X[k])
-    M.append(Mt)
+    Mt = cp.outer(X[i], X[k]) + cp.outer(X[k], X[i]) - cp.outer(X[i], X[j]) - cp.outer(X[j], X[i]) + cp.outer(X[j], X[j]) - cp.outer(X[k], X[k])
+    M.append(Mt.get())
 M = np.array(M)
 
 signed_M = np.multiply(M, np.reshape(y, (-1, 1, 1)))
