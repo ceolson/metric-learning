@@ -50,7 +50,7 @@ def generate_synthetic_data(n, r, p, data, S=None):
     #     y.append(yt)
     # y = cp.array(y)
     
-    return X, S, y, Astar, Kstar
+    return X, M, S, y, Astar, Kstar
 
 def initialization(n, p, S, X, y):
     transition_matrices = [cp.zeros((n - 1, n - 1)) for _ in range(n)]
@@ -108,8 +108,9 @@ def initialization(n, p, S, X, y):
 
     return Ahat
 
-def L(A, triplets): 
-    yMtAs = torch.einsum('bij,jk->bik', triplets, A)
+def L(A, y, M):
+    yMts = y * M
+    yMtAs = torch.einsum('bij,jk->bik', yMts, A)
     yMtAATs = torch.einsum('bij,jk->bik', yMtAs, torch.transpose(A, 0, 1))
     TryMtAATs = torch.einsum('bii->b', yMtAATs)
     losses = torch.log(1 + torch.exp(-TryMtAATs))
@@ -133,30 +134,22 @@ print(np.shape(np.array(acs_data_cleaned)))
 
 
 print("Generating synthetic data...")
-X, S, y, Astar, Kstar = generate_synthetic_data(n, r, p, acs_data_cleaned)
+X, M, S, y, Astar, Kstar = generate_synthetic_data(n, r, p, acs_data_cleaned)
 print(cp.shape(X))
 
-cp.save("Astar.npy", Astar.get())
+np.save("Astar.npy", Astar.asnumpy())
 
 print("Initializing...")
 A0 = initialization(n, p, S, X, y)
 
 print(cp.linalg.norm(Astar - A0))
 
-M = []
-for t in S:
-    i, j, k = t
-    Mt = cp.outer(X[i], X[k]) + cp.outer(X[k], X[i]) - cp.outer(X[i], X[j]) - cp.outer(X[j], X[i]) + cp.outer(X[j], X[j]) - cp.outer(X[k], X[k])
-    M.append(Mt.get())
-M = np.array(M)
-
-signed_M = np.multiply(M, np.reshape(y, (-1, 1, 1)))
 
 
 print("Starting gradient descent...")
 
 A_iterates = []
-A = torch.tensor(A0.get(), requires_grad=True, device="cuda")
+A = torch.tensor(A0.asnumpy(), requires_grad=True, device="cuda")
 dists = []
 
 for iterate in range(1000):
