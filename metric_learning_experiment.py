@@ -153,7 +153,7 @@ A = torch.tensor(A0.asnumpy(), requires_grad=True, device="cuda")
 dists = []
 
 for iterate in range(1000):
-    loss = L(A)
+    loss = L(A, y, M)
     loss.backward()
     with torch.no_grad():
         A -= A.grad * 0.01
