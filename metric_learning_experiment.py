@@ -2,9 +2,9 @@ import numpy as np
 from folktables import ACSDataSource, ACSMobility
 from matplotlib import pyplot as plt
 import torch
-import cupy as cp
-from cupyx.scipy import stats
-from cupyx.scipy.sparse.linalg import lobpcg
+import numpy as cp
+from scipy import stats
+from scipy.sparse.linalg import lobpcg
 import pandas as pd
 
 def m_dist2(x1, x2, K):
@@ -121,7 +121,7 @@ synthetic_data = pd.DataFrame(cp.random.normal(size=(1000, 50)).get())
 
 r = 3
 p = 20
-n = 150
+n = 50
 
 data_source = ACSDataSource(survey_year='2018', horizon='1-Year', survey='person')
 acs_data = data_source.get_data(states=["AL"], download=True)
