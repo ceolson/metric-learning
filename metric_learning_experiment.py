@@ -117,7 +117,7 @@ def L(A, y, M):
     
     return torch.mean(losses)
 
-synthetic_data = pd.DataFrame(cp.random.normal(size=(1000, 50)).get())
+# synthetic_data = pd.DataFrame(cp.random.normal(size=(1000, 50)).get())
 
 r = 3
 p = 20
