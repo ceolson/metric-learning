@@ -28,7 +28,7 @@ def generate_synthetic_data(n, r, p, data, S=None):
                         Sbar.append((i, j, k))
         Sbar = cp.array(Sbar)
     
-        choices = cp.random.choice([False, True], size=len(Sbar), replace=True, p=[0.9, 0.1])
+        choices = cp.random.choice([False, True], size=len(Sbar), replace=True, p=[0.7, 0.3])
         S = Sbar[choices, :]
 
     M = []
@@ -50,7 +50,7 @@ def generate_synthetic_data(n, r, p, data, S=None):
     #     y.append(yt)
     # y = cp.array(y)
     
-    return X, M, S, y, Astar, Kstar
+    return X, S, y, Astar, Kstar
 
 def initialization(n, p, S, X, y):
     transition_matrices = [cp.zeros((n - 1, n - 1)) for _ in range(n)]
@@ -108,67 +108,29 @@ def initialization(n, p, S, X, y):
 
     return Ahat
 
-def L(A, y, M):
-    yMts = torch.reshape(y, (-1, 1, 1)) * M
-    yMtAs = torch.einsum('bij,jk->bik', yMts, A)
+def L(A, triplets): 
+    yMtAs = torch.einsum('bij,jk->bik', triplets, A)
     yMtAATs = torch.einsum('bij,jk->bik', yMtAs, torch.transpose(A, 0, 1))
     TryMtAATs = torch.einsum('bii->b', yMtAATs)
     losses = torch.log(1 + torch.exp(-TryMtAATs))
     
     return torch.mean(losses)
 
-# synthetic_data = pd.DataFrame(cp.random.normal(size=(1000, 50)).get())
+synthetic_data = pd.DataFrame(cp.random.normal(size=(1000, 50)).get())
 
 r = 3
 p = 20
-n = 150
 
-data_source = ACSDataSource(survey_year='2018', horizon='1-Year', survey='person')
-acs_data = data_source.get_data(states=["AL"], download=True)
-
-acs_data_cleaned = acs_data.select_dtypes(include="float64")
-acs_data_cleaned = acs_data_cleaned.loc[:, ~(acs_data_cleaned.isna().mean(axis=0) > 0.78)]
-acs_data_cleaned = acs_data_cleaned.loc[~acs_data_cleaned.isna().any(axis=1)]
-acs_data_cleaned = acs_data_cleaned.loc[:, (acs_data_cleaned.var(axis=0) > 0)]
-print(np.shape(np.array(acs_data_cleaned)))
-
-
-print("Generating synthetic data...")
-X, M, S, y, Astar, Kstar = generate_synthetic_data(n, r, p, acs_data_cleaned)
-print(cp.shape(X))
-
-np.save("Astar.npy", Astar.asnumpy())
-
-print("Initializing...")
-A0 = initialization(n, p, S, X, y)
-
-print(cp.linalg.norm(Astar - A0))
-
-
-
-print("Starting gradient descent...")
-
-A_iterates = []
-A = torch.tensor(A0.asnumpy(), requires_grad=True, device="cuda")
-dists = []
-
-y_tensor = torch.tensor(y, device="cuda")
-M_tensor = torch.tensor(M, device="cuda")
-for iterate in range(1000):
-    loss = L(A, y_tensor, M_tensor)
-    loss.backward()
-    with torch.no_grad():
-        A -= A.grad * 0.01
-        A_iterates.append(A.detach().cpu().numpy())
-        dists.append(np.linalg.norm(A.detach().cpu().numpy() @ A.detach().cpu().numpy().T - Kstar))
-        A.grad.zero_()
-    if iterate % 10 == 9:
-        print(iterate + 1, loss, np.linalg.norm(A.detach().cpu().numpy() @ A.detach().cpu().numpy().T - Kstar))
-
-np.save("A_iterates.npy", A_iterates)
-
-plt.plot(dists)
-plt.xlabel("iteration")
-plt.ylabel("||AA^T - K*||")
-
-plt.savefig("gd.png")
+for n in range(100, 400, 20):
+    
+    print("Generating synthetic data...")
+    X, S, y, Astar, Kstar = generate_synthetic_data(n, r, p, synthetic_data)
+    print(cp.shape(X))
+    
+    cp.save("Astar.npy", Astar.get())
+    
+    print("Initializing...")
+    A0 = initialization(n, p, S, X, y)
+    
+    print(n)
+    print(cp.linalg.norm(Astar - A0))

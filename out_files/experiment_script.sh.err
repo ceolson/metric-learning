@@ -1,0 +1,11 @@
+/n/home10/colson/metric-learning/metric_learning_experiment_numpy.py:94: UserWarning: Exited at iteration 20 with accuracies 
+[7.75268599 5.91658408 0.03600356]
+not reaching the requested tolerance 4.470348358154297e-07.
+Use iteration 1 instead with accuracy 
+0.000974276800098171.
+
+  eigenvalues, eigenvectors = lobpcg(A=XtHX, B=Sigma, X=cp.random.normal(size=(p,r)))
+/n/home10/colson/metric-learning/metric_learning_experiment_numpy.py:94: UserWarning: Exited postprocessing with accuracies 
+[0.00046688 0.00100949 0.00137146]
+not reaching the requested tolerance 4.470348358154297e-07.
+  eigenvalues, eigenvectors = lobpcg(A=XtHX, B=Sigma, X=cp.random.normal(size=(p,r)))

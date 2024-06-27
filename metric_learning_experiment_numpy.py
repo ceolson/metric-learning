@@ -2,9 +2,9 @@ import numpy as np
 from folktables import ACSDataSource, ACSMobility
 from matplotlib import pyplot as plt
 import torch
-import cupy as cp
-from cupyx.scipy import stats
-from cupyx.scipy.sparse.linalg import lobpcg
+import numpy as cp
+from scipy import stats
+from scipy.sparse.linalg import lobpcg
 import pandas as pd
 
 def m_dist2(x1, x2, K):
@@ -28,7 +28,7 @@ def generate_synthetic_data(n, r, p, data, S=None):
                         Sbar.append((i, j, k))
         Sbar = cp.array(Sbar)
     
-        choices = cp.random.choice([False, True], size=len(Sbar), replace=True, p=[0.9, 0.1])
+        choices = cp.random.choice([False, True], size=len(Sbar), replace=True, p=[0.95, 0.05])
         S = Sbar[choices, :]
 
     M = []
@@ -61,9 +61,6 @@ def initialization(n, p, S, X, y):
             else:
                 return l - 1
         i, j, k = S[t]
-        i = i.get()
-        j = j.get()
-        k = k.get()
         transition_matrices[i][gap(j, i), gap(k, i)] = 0.99 if y[t] == 1 else 0.01
         transition_matrices[i][gap(k, i), gap(j, i)] = 0.99 if y[t] == -1 else 0.01
 
@@ -117,11 +114,13 @@ def L(A, y, M):
     
     return torch.mean(losses)
 
-# synthetic_data = pd.DataFrame(cp.random.normal(size=(1000, 50)).get())
+# synthetic_data = pd.DataFrame(np.random.normal(size=(1000, 50)))
+synthetic_data = pd.DataFrame(np.random.uniform(low=-1, high=1, size=(1000, 50)))
 
 r = 3
-p = 20
-n = 150
+p = 30
+n = 400
+
 
 data_source = ACSDataSource(survey_year='2018', horizon='1-Year', survey='person')
 acs_data = data_source.get_data(states=["AL"], download=True)
@@ -134,10 +133,10 @@ print(np.shape(np.array(acs_data_cleaned)))
 
 
 print("Generating synthetic data...")
-X, M, S, y, Astar, Kstar = generate_synthetic_data(n, r, p, acs_data_cleaned)
+X, M, S, y, Astar, Kstar = generate_synthetic_data(n, r, p, synthetic_data)
 print(cp.shape(X))
 
-np.save("Astar.npy", Astar.asnumpy())
+np.save("Astar.npy", Astar)
 
 print("Initializing...")
 A0 = initialization(n, p, S, X, y)
@@ -149,16 +148,16 @@ print(cp.linalg.norm(Astar - A0))
 print("Starting gradient descent...")
 
 A_iterates = []
-A = torch.tensor(A0.asnumpy(), requires_grad=True, device="cuda")
+A = torch.tensor(A0, requires_grad=True, device="cuda")
 dists = []
 
 y_tensor = torch.tensor(y, device="cuda")
 M_tensor = torch.tensor(M, device="cuda")
-for iterate in range(1000):
+for iterate in range(2000):
     loss = L(A, y_tensor, M_tensor)
     loss.backward()
     with torch.no_grad():
-        A -= A.grad * 0.01
+        A -= A.grad * 0.1
         A_iterates.append(A.detach().cpu().numpy())
         dists.append(np.linalg.norm(A.detach().cpu().numpy() @ A.detach().cpu().numpy().T - Kstar))
         A.grad.zero_()

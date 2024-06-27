@@ -17,4 +17,4 @@
 module load python/3.10.9-fasrc01
 module load cuda/12.2.0-fasrc01
 source activate metriclearning2
-python metric_learning_experiment.py
+python metric_learning_experiment_numpy.py
