@@ -4,7 +4,7 @@
 #SBATCH --partition=bigmem
 #SBATCH --time=3-00:00
 #SBATCH --mem=2000G
-#SBATCH -c 64
+#SBATCH -c 1
 #SBATCH --output=/n/home10/colson/metric-learning/out_files/%j.out
 #SBATCH --error=/n/home10/colson/metric-learning/out_files/%j.err
 #SBATCH --open-mode=truncate

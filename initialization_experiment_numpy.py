@@ -105,12 +105,12 @@ def initialization(n, p, S, X, y):
     return Ahat
 
 
-synthetic_data = pd.DataFrame(np.random.normal(size=(1000, 50)))
+synthetic_data = pd.DataFrame(np.random.normal(size=(4000, 50)))
 
 r = 3
-p = 30
+p = 10
 
-for n in [250, 500, 750, 1000, 1250]:
+for n in range(1000, 3000, 5): # [500, 1000, 1500, 2000, 2500, 3000, 3500, 4000]:
     
     print("Generating synthetic data...")
     X, S, y, Astar, Kstar = generate_synthetic_data(n, r, p, synthetic_data)
