@@ -154,3 +154,57 @@
 [I 2024-07-09 14:37:59.250 ServerApp] Connecting to kernel efd695ea-963d-410b-b431-02c2d8480365.
 [I 2024-07-09 14:38:23.143 ServerApp] Saving file at /metric-learning/initialization_experiment.py
 [I 2024-07-09 14:38:33.614 ServerApp] Saving file at /metric-learning/metric_learning_experiment.py
+[I 2024-07-09 14:39:59.079 ServerApp] Saving file at /metric-learning/fairness-experiment.ipynb
+[I 2024-07-09 14:40:32.608 ServerApp] Kernel restarted: efd695ea-963d-410b-b431-02c2d8480365
+[I 2024-07-09 14:40:32.870 ServerApp] Starting buffering for efd695ea-963d-410b-b431-02c2d8480365:1af78c25-cba3-4bb9-b7d9-45e396fe479e
+[I 2024-07-09 14:40:33.053 ServerApp] Connecting to kernel efd695ea-963d-410b-b431-02c2d8480365.
+[I 2024-07-09 14:40:33.054 ServerApp] Restoring connection for efd695ea-963d-410b-b431-02c2d8480365:1af78c25-cba3-4bb9-b7d9-45e396fe479e
+[W 2024-07-09 14:40:37.563 ServerApp] Nudge: attempt 10 on kernel efd695ea-963d-410b-b431-02c2d8480365
+[W 2024-07-09 14:41:01.115 ServerApp] 404 GET /api/contents/.local/lib/python3.10/site-packages/torch/_functorch/deprecated.py?content=0&hash=0&1720550460958 (0a59656efe9c4c488fcb3e9f5f3e74e9@127.0.0.1) 0.60ms referer=https://f200-140-247-111-5.ngrok-free.app/lab/tree/metric-learning/fairness-experiment.ipynb
+[I 2024-07-09 14:41:01.115 ServerApp] Refusing to serve hidden file or directory '/n/home10/colson/.local/lib/python3.10/site-packages/torch/_functorch/deprecated.py', via 404 Error
+[E 2024-07-09 14:41:01.115 ServerApp] Uncaught exception GET /api/contents/.local/lib/python3.10/site-packages/torch/_functorch/deprecated.py?content=0&hash=0&1720550460958 (127.0.0.1)
+    HTTPServerRequest(protocol='http', host='f200-140-247-111-5.ngrok-free.app', method='GET', uri='/api/contents/.local/lib/python3.10/site-packages/torch/_functorch/deprecated.py?content=0&hash=0&1720550460958', version='HTTP/1.1', remote_ip='127.0.0.1')
+    Traceback (most recent call last):
+      File "/n/home10/colson/.conda/envs/gpu/lib/python3.12/site-packages/jupyter_server/services/contents/handlers.py", line 154, in get
+        model = await ensure_async(
+                ^^^^^^^^^^^^^^^^^^^
+      File "/n/home10/colson/.conda/envs/gpu/lib/python3.12/site-packages/jupyter_core/utils/__init__.py", line 198, in ensure_async
+        result = await obj
+                 ^^^^^^^^^
+      File "/n/home10/colson/.conda/envs/gpu/lib/python3.12/site-packages/jupyter_server/services/contents/filemanager.py", line 923, in get
+        model = await self._file_model(
+                ^^^^^^^^^^^^^^^^^^^^^^^
+      File "/n/home10/colson/.conda/envs/gpu/lib/python3.12/site-packages/jupyter_server/services/contents/filemanager.py", line 824, in _file_model
+        model = self._base_model(path)
+                ^^^^^^^^^^^^^^^^^^^^^^
+      File "/n/home10/colson/.conda/envs/gpu/lib/python3.12/site-packages/jupyter_server/services/contents/filemanager.py", line 236, in _base_model
+        raise web.HTTPError(404, four_o_four)
+    tornado.web.HTTPError: HTTP 404: Not Found (file or directory does not exist: '.local/lib/python3.10/site-packages/torch/_functorch/deprecated.py')
+    
+    During handling of the above exception, another exception occurred:
+    
+    Traceback (most recent call last):
+      File "/n/home10/colson/.conda/envs/gpu/lib/python3.12/site-packages/tornado/web.py", line 1790, in _execute
+        result = await result
+                 ^^^^^^^^^^^^
+      File "/n/home10/colson/.conda/envs/gpu/lib/python3.12/site-packages/jupyter_server/auth/decorator.py", line 73, in inner
+        return await out
+               ^^^^^^^^^
+      File "/n/home10/colson/.conda/envs/gpu/lib/python3.12/site-packages/jupyter_server/services/contents/handlers.py", line 180, in get
+        await self._finish_error(
+      File "/n/home10/colson/.conda/envs/gpu/lib/python3.12/site-packages/jupyter_server/services/contents/handlers.py", line 114, in _finish_error
+        self.write(message)
+      File "/n/home10/colson/.conda/envs/gpu/lib/python3.12/site-packages/tornado/web.py", line 914, in write
+        raise RuntimeError("Cannot write() after finish()")
+    RuntimeError: Cannot write() after finish()
+[I 2024-07-09 14:41:59.491 ServerApp] Saving file at /metric-learning/fairness-experiment.ipynb
+[I 2024-07-09 14:43:59.943 ServerApp] Saving file at /metric-learning/fairness-experiment.ipynb
+[I 2024-07-09 14:46:00.396 ServerApp] Saving file at /metric-learning/fairness-experiment.ipynb
+[I 2024-07-09 14:52:01.175 ServerApp] Saving file at /metric-learning/fairness-experiment.ipynb
+[I 2024-07-09 14:54:01.617 ServerApp] Saving file at /metric-learning/fairness-experiment.ipynb
+[I 2024-07-09 14:56:02.138 ServerApp] Saving file at /metric-learning/fairness-experiment.ipynb
+[W 2024-07-09 15:02:28.744 TerminalsExtensionApp] WebSocket ping timeout after 119916 ms.
+[W 2024-07-09 15:02:33.055 ServerApp] WebSocket ping timeout after 119926 ms.
+[I 2024-07-09 15:02:38.058 ServerApp] Starting buffering for efd695ea-963d-410b-b431-02c2d8480365:1af78c25-cba3-4bb9-b7d9-45e396fe479e
+slurmstepd: error: *** JOB 39172148 ON holy8a26501 CANCELLED AT 2024-07-09T15:29:11 DUE TO TIME LIMIT ***
+[C 2024-07-09 15:29:11.225 ServerApp] received signal 15, stopping
