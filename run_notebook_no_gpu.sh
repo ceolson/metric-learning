@@ -3,7 +3,7 @@
 #SBATCH --job-name=jupyter
 #SBATCH --partition=test
 #SBATCH --time=0-01:00
-#SBATCH --mem=8G
+#SBATCH --mem=1000G
 #SBATCH --cpus-per-task=1
 #SBATCH --output=/n/home10/colson/metric-learning/out_files/%x.out
 #SBATCH --error=/n/home10/colson/metric-learning/out_files/%x.err

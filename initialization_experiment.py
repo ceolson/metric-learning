@@ -13,7 +13,7 @@ if __name__ == '__main__':
     r = 3
     p = 10
 
-    for n in range(1000, 3000, 5): # [500, 1000, 1500, 2000, 2500, 3000, 3500, 4000]:
+    for n in range(100, 3000, 5): # [500, 1000, 1500, 2000, 2500, 3000, 3500, 4000]:
         
         print("Generating synthetic data...")
         X = clean_data(n, p, synthetic_data)

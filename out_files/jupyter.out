@@ -1,5 +1,3 @@
-(544, 46)
-Generating synthetic data...
-(150, 20)
-Initializing...
-1.794982005545285
+starting ngrok
+dumping ngrok info to tunnels.json
+jupyter url: /lab?token=c63f0bc7000ede187e773fae0bd7b3264879b25025cc40c9
