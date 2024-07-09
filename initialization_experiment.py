@@ -23,7 +23,7 @@ if __name__ == '__main__':
         np.save("Astar.npy", Astar)
         
         print("Initializing...")
-        A0 = initialization(n, p, S, X, y)
+        A0 = initialization(n, r, p, S, X, y)
         
         print(n)
         print(np.linalg.norm(Astar - A0))

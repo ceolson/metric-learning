@@ -109,3 +109,48 @@
 [I 2024-07-09 14:35:41.419 ServerApp] Saving file at /metric-learning/fairness-experiment.ipynb
 [I 2024-07-09 14:36:32.450 ServerApp] Saving file at /metric-learning/utils.py
 [I 2024-07-09 14:36:49.750 ServerApp] Saving file at /metric-learning/fairness-experiment.ipynb
+[I 2024-07-09 14:37:52.396 ServerApp] Saving file at /metric-learning/fairness_experiment.py
+[I 2024-07-09 14:37:53.510 ServerApp] Starting buffering for efd695ea-963d-410b-b431-02c2d8480365:feedad3e-91ae-44f9-b21d-9fe7c046aff6
+[W 2024-07-09 14:37:57.678 LabApp] Could not determine jupyterlab build status without nodejs
+[I 2024-07-09 14:37:57.895 ServerApp] Connecting to kernel efd695ea-963d-410b-b431-02c2d8480365.
+[I 2024-07-09 14:37:58.114 ServerApp] Starting buffering for efd695ea-963d-410b-b431-02c2d8480365:4241c69a-78c8-4772-ae2f-6582e58f6ea4
+[W 2024-07-09 14:37:58.945 ServerApp] 404 GET /api/contents/.local/lib/python3.10/site-packages/torch/_functorch/deprecated.py?content=0&hash=0&1720550278764 (0a59656efe9c4c488fcb3e9f5f3e74e9@127.0.0.1) 14.49ms referer=https://f200-140-247-111-5.ngrok-free.app/lab/tree/metric-learning/fairness_experiment.py
+[I 2024-07-09 14:37:58.945 ServerApp] Refusing to serve hidden file or directory '/n/home10/colson/.local/lib/python3.10/site-packages/torch/_functorch/deprecated.py', via 404 Error
+[E 2024-07-09 14:37:58.945 ServerApp] Uncaught exception GET /api/contents/.local/lib/python3.10/site-packages/torch/_functorch/deprecated.py?content=0&hash=0&1720550278764 (127.0.0.1)
+    HTTPServerRequest(protocol='http', host='f200-140-247-111-5.ngrok-free.app', method='GET', uri='/api/contents/.local/lib/python3.10/site-packages/torch/_functorch/deprecated.py?content=0&hash=0&1720550278764', version='HTTP/1.1', remote_ip='127.0.0.1')
+    Traceback (most recent call last):
+      File "/n/home10/colson/.conda/envs/gpu/lib/python3.12/site-packages/jupyter_server/services/contents/handlers.py", line 154, in get
+        model = await ensure_async(
+                ^^^^^^^^^^^^^^^^^^^
+      File "/n/home10/colson/.conda/envs/gpu/lib/python3.12/site-packages/jupyter_core/utils/__init__.py", line 198, in ensure_async
+        result = await obj
+                 ^^^^^^^^^
+      File "/n/home10/colson/.conda/envs/gpu/lib/python3.12/site-packages/jupyter_server/services/contents/filemanager.py", line 923, in get
+        model = await self._file_model(
+                ^^^^^^^^^^^^^^^^^^^^^^^
+      File "/n/home10/colson/.conda/envs/gpu/lib/python3.12/site-packages/jupyter_server/services/contents/filemanager.py", line 824, in _file_model
+        model = self._base_model(path)
+                ^^^^^^^^^^^^^^^^^^^^^^
+      File "/n/home10/colson/.conda/envs/gpu/lib/python3.12/site-packages/jupyter_server/services/contents/filemanager.py", line 236, in _base_model
+        raise web.HTTPError(404, four_o_four)
+    tornado.web.HTTPError: HTTP 404: Not Found (file or directory does not exist: '.local/lib/python3.10/site-packages/torch/_functorch/deprecated.py')
+    
+    During handling of the above exception, another exception occurred:
+    
+    Traceback (most recent call last):
+      File "/n/home10/colson/.conda/envs/gpu/lib/python3.12/site-packages/tornado/web.py", line 1790, in _execute
+        result = await result
+                 ^^^^^^^^^^^^
+      File "/n/home10/colson/.conda/envs/gpu/lib/python3.12/site-packages/jupyter_server/auth/decorator.py", line 73, in inner
+        return await out
+               ^^^^^^^^^
+      File "/n/home10/colson/.conda/envs/gpu/lib/python3.12/site-packages/jupyter_server/services/contents/handlers.py", line 180, in get
+        await self._finish_error(
+      File "/n/home10/colson/.conda/envs/gpu/lib/python3.12/site-packages/jupyter_server/services/contents/handlers.py", line 114, in _finish_error
+        self.write(message)
+      File "/n/home10/colson/.conda/envs/gpu/lib/python3.12/site-packages/tornado/web.py", line 914, in write
+        raise RuntimeError("Cannot write() after finish()")
+    RuntimeError: Cannot write() after finish()
+[I 2024-07-09 14:37:59.250 ServerApp] Connecting to kernel efd695ea-963d-410b-b431-02c2d8480365.
+[I 2024-07-09 14:38:23.143 ServerApp] Saving file at /metric-learning/initialization_experiment.py
+[I 2024-07-09 14:38:33.614 ServerApp] Saving file at /metric-learning/metric_learning_experiment.py
