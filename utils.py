@@ -1,7 +1,7 @@
 import numpy as np
 import torch
 from scipy import stats
-from scipy.sparse.linalg import lobpcg
+from scipy.linalg import eigh
 import pandas as pd
 
 def m_dist2(x1, x2, K):
@@ -90,7 +90,7 @@ def initialization(n, r, p, S, X, y):
 
     XtHX = Xprime.T @ H @ Xprime / (n**2)
     Sigma = Xprime.T @ Xprime / n
-    eigenvalues, eigenvectors = lobpcg(A=XtHX, B=Sigma, X=np.random.normal(size=(p,r)))
+    eigenvalues, eigenvectors = eigh(a=XtHX, b=Sigma)
     U = eigenvectors[:, np.argsort(eigenvalues)[-r:]]
     Lambda = np.sort(eigenvalues)[-r:]
     Ahat = U @ np.diag(np.sqrt(Lambda))
