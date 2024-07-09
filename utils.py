@@ -51,7 +51,7 @@ def generate_synthetic_data(n, r, p, X, S=None):
     
     return M, S, y, Astar, Kstar
 
-def initialization(n, p, S, X, y):
+def initialization(n, r, p, S, X, y):
     transition_matrices = [np.zeros((n - 1, n - 1)) for _ in range(n)]
     for t in range(len(S)):
         def gap(l, i):
