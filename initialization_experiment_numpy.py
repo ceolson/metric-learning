@@ -93,15 +93,7 @@ def initialization(n, p, S, X, y):
     eigenvalues, eigenvectors = lobpcg(A=XtHX, B=Sigma, X=np.random.normal(size=(p,r)))
     U = eigenvectors[:, np.argsort(eigenvalues)[-r:]]
     Lambda = np.sort(eigenvalues)[-r:]
-    AAt = U @ np.diag(Lambda) @ U.T
-    
-    V, s, W = np.linalg.svd(AAt)
-    
-    top_r_indicies = np.argsort(s)[:r]
-    V_r = V[:, top_r_indicies].reshape((p, r))
-    s_r = s[top_r_indicies]
-    Ahat = V_r @ np.sqrt(np.diag(s_r))
-
+    Ahat = U @ np.diag(np.sqrt(Lambda))
     return Ahat
 
 
@@ -110,7 +102,7 @@ synthetic_data = pd.DataFrame(np.random.normal(size=(4000, 50)))
 r = 3
 p = 10
 
-for n in range(1000, 3000, 5): # [500, 1000, 1500, 2000, 2500, 3000, 3500, 4000]:
+for n in range(100, 3000, 5): # [500, 1000, 1500, 2000, 2500, 3000, 3500, 4000]:
     
     print("Generating synthetic data...")
     X, S, y, Astar, Kstar = generate_synthetic_data(n, r, p, synthetic_data)
