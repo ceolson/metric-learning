@@ -23,8 +23,6 @@ if __name__ == '__main__':
     acs_data_adult = acs_data[acs_data["AGEP"] >= 18]
 
     acs_data_cleaned = acs_data_adult.select_dtypes(include=["float64", "int64"])
-
-
     acs_data_cleaned = acs_data_cleaned.loc[:, ~(acs_data_cleaned.isna().any())]
     acs_data_cleaned = acs_data_cleaned.loc[:, (acs_data_cleaned.var(axis=0) > 0)]
     acs_data_cleaned = acs_data_cleaned.sample(frac=1, axis=0)
@@ -35,9 +33,9 @@ if __name__ == '__main__':
     X_train = X[:n]
     X_test = X[n:]
 
-    M, S, y, Astar, Kstar = generate_synthetic_data(n, r, p, X_train)
-
     print(np.shape(X_train), np.shape(X_test))
+
+    M, S, y, Astar, Kstar = generate_synthetic_data(n, r, p, X_train)
 
     np.save("Astar.npy", Astar)
 
