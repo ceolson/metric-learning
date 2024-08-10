@@ -76,7 +76,7 @@ def initialization(n, r, p, S, X, y):
         eigenvalues, eigenvectors = eig(transition_matrices[i], left=True, right=False)
         leading_index = np.where(np.isclose(eigenvalues, 1))[0][0]
         leading_eigenvector = eigenvectors[:, leading_index].real
-        dists_wo_i = np.log(leading_eigenvector)
+        dists_wo_i = np.log(np.max(leading_eigenvector, 0.01))
         if not np.all(np.isfinite(dists_wo_i)):
             print(i)
         dists = np.zeros(n)
@@ -86,7 +86,7 @@ def initialization(n, r, p, S, X, y):
 
     J = np.identity(n) - (np.ones((n, 1)) @ np.ones((1, n))) / n
     H = - J @ D @ J / 2
-    Xprime = J @ X
+    Xprime = J @ X_train
 
     XtHX = Xprime.T @ H @ Xprime / (n**2)
     Sigma = Xprime.T @ Xprime / n
