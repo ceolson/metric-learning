@@ -1,7 +1,7 @@
 import numpy as np
 import torch
 from scipy import stats
-from scipy.linalg import eigh
+from scipy.linalg import eigh, eig
 import pandas as pd
 
 def m_dist2(x1, x2, K):
@@ -27,7 +27,7 @@ def generate_synthetic_data(n, r, p, X, S=None):
                         Sbar.append((i, j, k))
         Sbar = np.array(Sbar)
     
-        choices = np.random.choice([False, True], size=len(Sbar), replace=True, p=[0.95, 0.05])
+        choices = np.random.choice([False, True], size=len(Sbar), replace=True, p=[0.5, 0.5])
         S = Sbar[choices, :]
 
     M = []
@@ -60,8 +60,8 @@ def initialization(n, r, p, S, X, y):
             else:
                 return l - 1
         i, j, k = S[t]
-        transition_matrices[i][gap(j, i), gap(k, i)] = 0.99 if y[t] == 1 else 0.01
-        transition_matrices[i][gap(k, i), gap(j, i)] = 0.99 if y[t] == -1 else 0.01
+        transition_matrices[i][gap(j, i), gap(k, i)] = 1 if y[t] == -1 else 0
+        transition_matrices[i][gap(k, i), gap(j, i)] = 1 if y[t] == 1 else 0
 
     for i in range(n):
         d = np.max(np.sum(transition_matrices[i], axis=1))
@@ -73,9 +73,9 @@ def initialization(n, r, p, S, X, y):
 
     dists_from_i = []
     for i in range(n):
-        eigenvalues, eigenvectors = np.linalg.eigh(transition_matrices[i])
-        leading_index = np.where(np.isclose(eigenvalues, 1))[0]
-        leading_eigenvector = np.abs(eigenvectors[:, leading_index].real)
+        eigenvalues, eigenvectors = eig(transition_matrices[i], left=True, right=False)
+        leading_index = np.where(np.isclose(eigenvalues, 1))[0][0]
+        leading_eigenvector = eigenvectors[:, leading_index].real
         dists_wo_i = np.log(leading_eigenvector)
         if not np.all(np.isfinite(dists_wo_i)):
             print(i)

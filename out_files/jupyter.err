@@ -1,37 +1,37 @@
-/var/slurmd/spool/slurmd/job39172148/slurm_script: line 14: mamba: command not found
-/var/slurmd/spool/slurmd/job39172148/slurm_script: line 23: cd: /n/home10/colson/helpers: No such file or directory
-/var/slurmd/spool/slurmd/job39172148/slurm_script: line 25: kill: `': not a pid or valid job spec
+/var/slurmd/spool/slurmd/job43255083/slurm_script: line 14: mamba: command not found
+/var/slurmd/spool/slurmd/job43255083/slurm_script: line 23: cd: /n/home10/colson/helpers: No such file or directory
+/var/slurmd/spool/slurmd/job43255083/slurm_script: line 25: kill: `': not a pid or valid job spec
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100   450  100   450    0     0   109k      0 --:--:-- --:--:-- --:--:--  109k
-/var/slurmd/spool/slurmd/job39172148/slurm_script: line 30: jq: command not found
-[I 2024-07-09 14:29:34.406 ServerApp] jupyter_lsp | extension was successfully linked.
-[I 2024-07-09 14:29:34.425 ServerApp] jupyter_server_terminals | extension was successfully linked.
-[W 2024-07-09 14:29:34.440 LabApp] 'token' has moved from NotebookApp to ServerApp. This config will be passed to ServerApp. Be sure to update your config before our next release.
-[W 2024-07-09 14:29:34.442 ServerApp] ServerApp.token config is deprecated in 2.0. Use IdentityProvider.token.
-[I 2024-07-09 14:29:34.442 ServerApp] jupyterlab | extension was successfully linked.
-[I 2024-07-09 14:29:34.459 ServerApp] notebook | extension was successfully linked.
-[I 2024-07-09 14:29:40.279 ServerApp] notebook_shim | extension was successfully linked.
-[I 2024-07-09 14:29:40.679 ServerApp] notebook_shim | extension was successfully loaded.
-[I 2024-07-09 14:29:40.683 ServerApp] jupyter_lsp | extension was successfully loaded.
-[I 2024-07-09 14:29:40.683 ServerApp] jupyter_server_terminals | extension was successfully loaded.
-[I 2024-07-09 14:29:40.985 LabApp] JupyterLab extension loaded from /n/home10/colson/.conda/envs/gpu/lib/python3.12/site-packages/jupyterlab
-[I 2024-07-09 14:29:40.985 LabApp] JupyterLab application directory is /n/home10/colson/.conda/envs/gpu/share/jupyter/lab
-[I 2024-07-09 14:29:41.018 LabApp] Extension Manager is 'pypi'.
-[I 2024-07-09 14:29:41.021 ServerApp] jupyterlab | extension was successfully loaded.
-[I 2024-07-09 14:29:41.092 ServerApp] notebook | extension was successfully loaded.
-[I 2024-07-09 14:29:41.092 ServerApp] Serving notebooks from local directory: /n/home10/colson
-[I 2024-07-09 14:29:41.092 ServerApp] Jupyter Server 2.14.0 is running at:
-[I 2024-07-09 14:29:41.092 ServerApp] http://holy8a26501.rc.fas.harvard.edu:8889/lab?token=...
-[I 2024-07-09 14:29:41.092 ServerApp]     http://127.0.0.1:8889/lab?token=...
-[I 2024-07-09 14:29:41.092 ServerApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
-[I 2024-07-09 14:29:41.343 ServerApp] Skipped non-installed server(s): bash-language-server, dockerfile-language-server-nodejs, javascript-typescript-langserver, jedi-language-server, julia-language-server, pyright, python-language-server, python-lsp-server, r-languageserver, sql-language-server, texlab, typescript-language-server, unified-language-server, vscode-css-languageserver-bin, vscode-html-languageserver-bin, vscode-json-languageserver-bin, yaml-language-server
-[W 2024-07-09 14:31:37.252 LabApp] Could not determine jupyterlab build status without nodejs
-[I 2024-07-09 14:31:37.942 ServerApp] New terminal with automatic name: 3
-[W 2024-07-09 14:31:41.200 ServerApp] 404 GET /api/contents/.local/lib/python3.10/site-packages/torch/_functorch/deprecated.py?content=0&hash=0&1720549900990 (0a59656efe9c4c488fcb3e9f5f3e74e9@127.0.0.1) 34.33ms referer=https://f200-140-247-111-5.ngrok-free.app/lab
-[I 2024-07-09 14:31:41.200 ServerApp] Refusing to serve hidden file or directory '/n/home10/colson/.local/lib/python3.10/site-packages/torch/_functorch/deprecated.py', via 404 Error
-[E 2024-07-09 14:31:41.201 ServerApp] Uncaught exception GET /api/contents/.local/lib/python3.10/site-packages/torch/_functorch/deprecated.py?content=0&hash=0&1720549900990 (127.0.0.1)
-    HTTPServerRequest(protocol='http', host='f200-140-247-111-5.ngrok-free.app', method='GET', uri='/api/contents/.local/lib/python3.10/site-packages/torch/_functorch/deprecated.py?content=0&hash=0&1720549900990', version='HTTP/1.1', remote_ip='127.0.0.1')
+/var/slurmd/spool/slurmd/job43255083/slurm_script: line 30: jq: command not found
+[I 2024-08-08 16:53:36.184 ServerApp] jupyter_lsp | extension was successfully linked.
+[I 2024-08-08 16:53:36.194 ServerApp] jupyter_server_terminals | extension was successfully linked.
+[W 2024-08-08 16:53:36.200 LabApp] 'token' has moved from NotebookApp to ServerApp. This config will be passed to ServerApp. Be sure to update your config before our next release.
+[W 2024-08-08 16:53:36.202 ServerApp] ServerApp.token config is deprecated in 2.0. Use IdentityProvider.token.
+[I 2024-08-08 16:53:36.202 ServerApp] jupyterlab | extension was successfully linked.
+[I 2024-08-08 16:53:36.210 ServerApp] notebook | extension was successfully linked.
+[I 2024-08-08 16:53:41.403 ServerApp] notebook_shim | extension was successfully linked.
+[I 2024-08-08 16:53:41.801 ServerApp] notebook_shim | extension was successfully loaded.
+[I 2024-08-08 16:53:41.805 ServerApp] jupyter_lsp | extension was successfully loaded.
+[I 2024-08-08 16:53:41.806 ServerApp] jupyter_server_terminals | extension was successfully loaded.
+[I 2024-08-08 16:53:41.983 LabApp] JupyterLab extension loaded from /n/home10/colson/.conda/envs/gpu/lib/python3.12/site-packages/jupyterlab
+[I 2024-08-08 16:53:41.983 LabApp] JupyterLab application directory is /n/home10/colson/.conda/envs/gpu/share/jupyter/lab
+[I 2024-08-08 16:53:41.989 LabApp] Extension Manager is 'pypi'.
+[I 2024-08-08 16:53:41.992 ServerApp] jupyterlab | extension was successfully loaded.
+[I 2024-08-08 16:53:42.066 ServerApp] notebook | extension was successfully loaded.
+[I 2024-08-08 16:53:42.066 ServerApp] Serving notebooks from local directory: /n/home10/colson
+[I 2024-08-08 16:53:42.066 ServerApp] Jupyter Server 2.14.0 is running at:
+[I 2024-08-08 16:53:42.066 ServerApp] http://holy8a24502.rc.fas.harvard.edu:8889/lab?token=...
+[I 2024-08-08 16:53:42.067 ServerApp]     http://127.0.0.1:8889/lab?token=...
+[I 2024-08-08 16:53:42.067 ServerApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
+[I 2024-08-08 16:53:42.243 ServerApp] Skipped non-installed server(s): bash-language-server, dockerfile-language-server-nodejs, javascript-typescript-langserver, jedi-language-server, julia-language-server, pyright, python-language-server, python-lsp-server, r-languageserver, sql-language-server, texlab, typescript-language-server, unified-language-server, vscode-css-languageserver-bin, vscode-html-languageserver-bin, vscode-json-languageserver-bin, yaml-language-server
+[W 2024-08-08 16:55:41.126 LabApp] Could not determine jupyterlab build status without nodejs
+[I 2024-08-08 16:55:44.382 ServerApp] New terminal with automatic name: 3
+[W 2024-08-08 16:55:45.428 ServerApp] 404 GET /api/contents/.local/lib/python3.10/site-packages/torch/_functorch/deprecated.py?content=0&hash=0&1723150545351 (82ed57f062464d449544b5190b6e8cd6@127.0.0.1) 18.15ms referer=https://b508-140-247-111-5.ngrok-free.app/lab/tree/metric-learning/fairness-experiment.ipynb
+[I 2024-08-08 16:55:45.428 ServerApp] Refusing to serve hidden file or directory '/n/home10/colson/.local/lib/python3.10/site-packages/torch/_functorch/deprecated.py', via 404 Error
+[E 2024-08-08 16:55:45.428 ServerApp] Uncaught exception GET /api/contents/.local/lib/python3.10/site-packages/torch/_functorch/deprecated.py?content=0&hash=0&1723150545351 (127.0.0.1)
+    HTTPServerRequest(protocol='http', host='b508-140-247-111-5.ngrok-free.app', method='GET', uri='/api/contents/.local/lib/python3.10/site-packages/torch/_functorch/deprecated.py?content=0&hash=0&1723150545351', version='HTTP/1.1', remote_ip='127.0.0.1')
     Traceback (most recent call last):
       File "/n/home10/colson/.conda/envs/gpu/lib/python3.12/site-packages/jupyter_server/services/contents/handlers.py", line 154, in get
         model = await ensure_async(
@@ -65,14 +65,16 @@
       File "/n/home10/colson/.conda/envs/gpu/lib/python3.12/site-packages/tornado/web.py", line 914, in write
         raise RuntimeError("Cannot write() after finish()")
     RuntimeError: Cannot write() after finish()
-[I 2024-07-09 14:31:41.608 ServerApp] Kernel started: efd695ea-963d-410b-b431-02c2d8480365
-[I 2024-07-09 14:31:55.170 ServerApp] Connecting to kernel efd695ea-963d-410b-b431-02c2d8480365.
-[I 2024-07-09 14:31:55.171 ServerApp] Connecting to kernel efd695ea-963d-410b-b431-02c2d8480365.
-[I 2024-07-09 14:31:55.172 ServerApp] Connecting to kernel efd695ea-963d-410b-b431-02c2d8480365.
-[W 2024-07-09 14:34:59.321 ServerApp] 404 GET /api/contents/.local/lib/python3.10/site-packages/torch/_functorch/deprecated.py?content=0&hash=0&1720550099165 (0a59656efe9c4c488fcb3e9f5f3e74e9@127.0.0.1) 0.61ms referer=https://f200-140-247-111-5.ngrok-free.app/lab
-[I 2024-07-09 14:34:59.323 ServerApp] Refusing to serve hidden file or directory '/n/home10/colson/.local/lib/python3.10/site-packages/torch/_functorch/deprecated.py', via 404 Error
-[E 2024-07-09 14:34:59.323 ServerApp] Uncaught exception GET /api/contents/.local/lib/python3.10/site-packages/torch/_functorch/deprecated.py?content=0&hash=0&1720550099165 (127.0.0.1)
-    HTTPServerRequest(protocol='http', host='f200-140-247-111-5.ngrok-free.app', method='GET', uri='/api/contents/.local/lib/python3.10/site-packages/torch/_functorch/deprecated.py?content=0&hash=0&1720550099165', version='HTTP/1.1', remote_ip='127.0.0.1')
+[I 2024-08-08 16:55:45.805 ServerApp] Kernel started: f39cb94f-c83d-4061-a716-4fa47374085f
+[I 2024-08-08 16:55:45.807 ServerApp] Kernel started: 6681993b-d18e-4aaf-80c4-602cd82c404c
+[I 2024-08-08 16:55:53.350 ServerApp] Connecting to kernel f39cb94f-c83d-4061-a716-4fa47374085f.
+[I 2024-08-08 16:55:53.424 ServerApp] Connecting to kernel 6681993b-d18e-4aaf-80c4-602cd82c404c.
+[I 2024-08-08 16:55:53.425 ServerApp] Connecting to kernel 6681993b-d18e-4aaf-80c4-602cd82c404c.
+[I 2024-08-08 16:55:53.426 ServerApp] Connecting to kernel 6681993b-d18e-4aaf-80c4-602cd82c404c.
+[W 2024-08-08 16:56:54.924 ServerApp] 404 GET /api/contents/.local/lib/python3.10/site-packages/torch/_functorch/deprecated.py?content=0&hash=0&1723150614867 (82ed57f062464d449544b5190b6e8cd6@127.0.0.1) 0.67ms referer=https://b508-140-247-111-5.ngrok-free.app/lab/tree/metric-learning/fairness-experiment.ipynb
+[I 2024-08-08 16:56:54.927 ServerApp] Refusing to serve hidden file or directory '/n/home10/colson/.local/lib/python3.10/site-packages/torch/_functorch/deprecated.py', via 404 Error
+[E 2024-08-08 16:56:54.927 ServerApp] Uncaught exception GET /api/contents/.local/lib/python3.10/site-packages/torch/_functorch/deprecated.py?content=0&hash=0&1723150614867 (127.0.0.1)
+    HTTPServerRequest(protocol='http', host='b508-140-247-111-5.ngrok-free.app', method='GET', uri='/api/contents/.local/lib/python3.10/site-packages/torch/_functorch/deprecated.py?content=0&hash=0&1723150614867', version='HTTP/1.1', remote_ip='127.0.0.1')
     Traceback (most recent call last):
       File "/n/home10/colson/.conda/envs/gpu/lib/python3.12/site-packages/jupyter_server/services/contents/handlers.py", line 154, in get
         model = await ensure_async(
@@ -106,105 +108,15 @@
       File "/n/home10/colson/.conda/envs/gpu/lib/python3.12/site-packages/tornado/web.py", line 914, in write
         raise RuntimeError("Cannot write() after finish()")
     RuntimeError: Cannot write() after finish()
-[I 2024-07-09 14:35:41.419 ServerApp] Saving file at /metric-learning/fairness-experiment.ipynb
-[I 2024-07-09 14:36:32.450 ServerApp] Saving file at /metric-learning/utils.py
-[I 2024-07-09 14:36:49.750 ServerApp] Saving file at /metric-learning/fairness-experiment.ipynb
-[I 2024-07-09 14:37:52.396 ServerApp] Saving file at /metric-learning/fairness_experiment.py
-[I 2024-07-09 14:37:53.510 ServerApp] Starting buffering for efd695ea-963d-410b-b431-02c2d8480365:feedad3e-91ae-44f9-b21d-9fe7c046aff6
-[W 2024-07-09 14:37:57.678 LabApp] Could not determine jupyterlab build status without nodejs
-[I 2024-07-09 14:37:57.895 ServerApp] Connecting to kernel efd695ea-963d-410b-b431-02c2d8480365.
-[I 2024-07-09 14:37:58.114 ServerApp] Starting buffering for efd695ea-963d-410b-b431-02c2d8480365:4241c69a-78c8-4772-ae2f-6582e58f6ea4
-[W 2024-07-09 14:37:58.945 ServerApp] 404 GET /api/contents/.local/lib/python3.10/site-packages/torch/_functorch/deprecated.py?content=0&hash=0&1720550278764 (0a59656efe9c4c488fcb3e9f5f3e74e9@127.0.0.1) 14.49ms referer=https://f200-140-247-111-5.ngrok-free.app/lab/tree/metric-learning/fairness_experiment.py
-[I 2024-07-09 14:37:58.945 ServerApp] Refusing to serve hidden file or directory '/n/home10/colson/.local/lib/python3.10/site-packages/torch/_functorch/deprecated.py', via 404 Error
-[E 2024-07-09 14:37:58.945 ServerApp] Uncaught exception GET /api/contents/.local/lib/python3.10/site-packages/torch/_functorch/deprecated.py?content=0&hash=0&1720550278764 (127.0.0.1)
-    HTTPServerRequest(protocol='http', host='f200-140-247-111-5.ngrok-free.app', method='GET', uri='/api/contents/.local/lib/python3.10/site-packages/torch/_functorch/deprecated.py?content=0&hash=0&1720550278764', version='HTTP/1.1', remote_ip='127.0.0.1')
-    Traceback (most recent call last):
-      File "/n/home10/colson/.conda/envs/gpu/lib/python3.12/site-packages/jupyter_server/services/contents/handlers.py", line 154, in get
-        model = await ensure_async(
-                ^^^^^^^^^^^^^^^^^^^
-      File "/n/home10/colson/.conda/envs/gpu/lib/python3.12/site-packages/jupyter_core/utils/__init__.py", line 198, in ensure_async
-        result = await obj
-                 ^^^^^^^^^
-      File "/n/home10/colson/.conda/envs/gpu/lib/python3.12/site-packages/jupyter_server/services/contents/filemanager.py", line 923, in get
-        model = await self._file_model(
-                ^^^^^^^^^^^^^^^^^^^^^^^
-      File "/n/home10/colson/.conda/envs/gpu/lib/python3.12/site-packages/jupyter_server/services/contents/filemanager.py", line 824, in _file_model
-        model = self._base_model(path)
-                ^^^^^^^^^^^^^^^^^^^^^^
-      File "/n/home10/colson/.conda/envs/gpu/lib/python3.12/site-packages/jupyter_server/services/contents/filemanager.py", line 236, in _base_model
-        raise web.HTTPError(404, four_o_four)
-    tornado.web.HTTPError: HTTP 404: Not Found (file or directory does not exist: '.local/lib/python3.10/site-packages/torch/_functorch/deprecated.py')
-    
-    During handling of the above exception, another exception occurred:
-    
-    Traceback (most recent call last):
-      File "/n/home10/colson/.conda/envs/gpu/lib/python3.12/site-packages/tornado/web.py", line 1790, in _execute
-        result = await result
-                 ^^^^^^^^^^^^
-      File "/n/home10/colson/.conda/envs/gpu/lib/python3.12/site-packages/jupyter_server/auth/decorator.py", line 73, in inner
-        return await out
-               ^^^^^^^^^
-      File "/n/home10/colson/.conda/envs/gpu/lib/python3.12/site-packages/jupyter_server/services/contents/handlers.py", line 180, in get
-        await self._finish_error(
-      File "/n/home10/colson/.conda/envs/gpu/lib/python3.12/site-packages/jupyter_server/services/contents/handlers.py", line 114, in _finish_error
-        self.write(message)
-      File "/n/home10/colson/.conda/envs/gpu/lib/python3.12/site-packages/tornado/web.py", line 914, in write
-        raise RuntimeError("Cannot write() after finish()")
-    RuntimeError: Cannot write() after finish()
-[I 2024-07-09 14:37:59.250 ServerApp] Connecting to kernel efd695ea-963d-410b-b431-02c2d8480365.
-[I 2024-07-09 14:38:23.143 ServerApp] Saving file at /metric-learning/initialization_experiment.py
-[I 2024-07-09 14:38:33.614 ServerApp] Saving file at /metric-learning/metric_learning_experiment.py
-[I 2024-07-09 14:39:59.079 ServerApp] Saving file at /metric-learning/fairness-experiment.ipynb
-[I 2024-07-09 14:40:32.608 ServerApp] Kernel restarted: efd695ea-963d-410b-b431-02c2d8480365
-[I 2024-07-09 14:40:32.870 ServerApp] Starting buffering for efd695ea-963d-410b-b431-02c2d8480365:1af78c25-cba3-4bb9-b7d9-45e396fe479e
-[I 2024-07-09 14:40:33.053 ServerApp] Connecting to kernel efd695ea-963d-410b-b431-02c2d8480365.
-[I 2024-07-09 14:40:33.054 ServerApp] Restoring connection for efd695ea-963d-410b-b431-02c2d8480365:1af78c25-cba3-4bb9-b7d9-45e396fe479e
-[W 2024-07-09 14:40:37.563 ServerApp] Nudge: attempt 10 on kernel efd695ea-963d-410b-b431-02c2d8480365
-[W 2024-07-09 14:41:01.115 ServerApp] 404 GET /api/contents/.local/lib/python3.10/site-packages/torch/_functorch/deprecated.py?content=0&hash=0&1720550460958 (0a59656efe9c4c488fcb3e9f5f3e74e9@127.0.0.1) 0.60ms referer=https://f200-140-247-111-5.ngrok-free.app/lab/tree/metric-learning/fairness-experiment.ipynb
-[I 2024-07-09 14:41:01.115 ServerApp] Refusing to serve hidden file or directory '/n/home10/colson/.local/lib/python3.10/site-packages/torch/_functorch/deprecated.py', via 404 Error
-[E 2024-07-09 14:41:01.115 ServerApp] Uncaught exception GET /api/contents/.local/lib/python3.10/site-packages/torch/_functorch/deprecated.py?content=0&hash=0&1720550460958 (127.0.0.1)
-    HTTPServerRequest(protocol='http', host='f200-140-247-111-5.ngrok-free.app', method='GET', uri='/api/contents/.local/lib/python3.10/site-packages/torch/_functorch/deprecated.py?content=0&hash=0&1720550460958', version='HTTP/1.1', remote_ip='127.0.0.1')
-    Traceback (most recent call last):
-      File "/n/home10/colson/.conda/envs/gpu/lib/python3.12/site-packages/jupyter_server/services/contents/handlers.py", line 154, in get
-        model = await ensure_async(
-                ^^^^^^^^^^^^^^^^^^^
-      File "/n/home10/colson/.conda/envs/gpu/lib/python3.12/site-packages/jupyter_core/utils/__init__.py", line 198, in ensure_async
-        result = await obj
-                 ^^^^^^^^^
-      File "/n/home10/colson/.conda/envs/gpu/lib/python3.12/site-packages/jupyter_server/services/contents/filemanager.py", line 923, in get
-        model = await self._file_model(
-                ^^^^^^^^^^^^^^^^^^^^^^^
-      File "/n/home10/colson/.conda/envs/gpu/lib/python3.12/site-packages/jupyter_server/services/contents/filemanager.py", line 824, in _file_model
-        model = self._base_model(path)
-                ^^^^^^^^^^^^^^^^^^^^^^
-      File "/n/home10/colson/.conda/envs/gpu/lib/python3.12/site-packages/jupyter_server/services/contents/filemanager.py", line 236, in _base_model
-        raise web.HTTPError(404, four_o_four)
-    tornado.web.HTTPError: HTTP 404: Not Found (file or directory does not exist: '.local/lib/python3.10/site-packages/torch/_functorch/deprecated.py')
-    
-    During handling of the above exception, another exception occurred:
-    
-    Traceback (most recent call last):
-      File "/n/home10/colson/.conda/envs/gpu/lib/python3.12/site-packages/tornado/web.py", line 1790, in _execute
-        result = await result
-                 ^^^^^^^^^^^^
-      File "/n/home10/colson/.conda/envs/gpu/lib/python3.12/site-packages/jupyter_server/auth/decorator.py", line 73, in inner
-        return await out
-               ^^^^^^^^^
-      File "/n/home10/colson/.conda/envs/gpu/lib/python3.12/site-packages/jupyter_server/services/contents/handlers.py", line 180, in get
-        await self._finish_error(
-      File "/n/home10/colson/.conda/envs/gpu/lib/python3.12/site-packages/jupyter_server/services/contents/handlers.py", line 114, in _finish_error
-        self.write(message)
-      File "/n/home10/colson/.conda/envs/gpu/lib/python3.12/site-packages/tornado/web.py", line 914, in write
-        raise RuntimeError("Cannot write() after finish()")
-    RuntimeError: Cannot write() after finish()
-[I 2024-07-09 14:41:59.491 ServerApp] Saving file at /metric-learning/fairness-experiment.ipynb
-[I 2024-07-09 14:43:59.943 ServerApp] Saving file at /metric-learning/fairness-experiment.ipynb
-[I 2024-07-09 14:46:00.396 ServerApp] Saving file at /metric-learning/fairness-experiment.ipynb
-[I 2024-07-09 14:52:01.175 ServerApp] Saving file at /metric-learning/fairness-experiment.ipynb
-[I 2024-07-09 14:54:01.617 ServerApp] Saving file at /metric-learning/fairness-experiment.ipynb
-[I 2024-07-09 14:56:02.138 ServerApp] Saving file at /metric-learning/fairness-experiment.ipynb
-[W 2024-07-09 15:02:28.744 TerminalsExtensionApp] WebSocket ping timeout after 119916 ms.
-[W 2024-07-09 15:02:33.055 ServerApp] WebSocket ping timeout after 119926 ms.
-[I 2024-07-09 15:02:38.058 ServerApp] Starting buffering for efd695ea-963d-410b-b431-02c2d8480365:1af78c25-cba3-4bb9-b7d9-45e396fe479e
-slurmstepd: error: *** JOB 39172148 ON holy8a26501 CANCELLED AT 2024-07-09T15:29:11 DUE TO TIME LIMIT ***
-[C 2024-07-09 15:29:11.225 ServerApp] received signal 15, stopping
+[I 2024-08-08 16:57:45.589 ServerApp] Saving file at /metric-learning/fairness-experiment.ipynb
+[I 2024-08-08 16:59:46.510 ServerApp] Saving file at /metric-learning/fairness-experiment.ipynb
+[I 2024-08-08 17:01:47.248 ServerApp] Saving file at /metric-learning/fairness-experiment.ipynb
+[I 2024-08-08 17:03:47.627 ServerApp] Saving file at /metric-learning/fairness-experiment.ipynb
+[I 2024-08-08 17:05:48.030 ServerApp] Saving file at /metric-learning/fairness-experiment.ipynb
+[W 2024-08-08 17:36:15.024 TerminalsExtensionApp] WebSocket ping timeout after 117788 ms.
+[W 2024-08-08 17:36:23.353 ServerApp] WebSocket ping timeout after 119911 ms.
+[W 2024-08-08 17:36:23.426 ServerApp] WebSocket ping timeout after 119940 ms.
+[I 2024-08-08 17:36:28.354 ServerApp] Starting buffering for f39cb94f-c83d-4061-a716-4fa47374085f:32d4ae6b-b5d0-4c0b-8a35-35edebd9b946
+[I 2024-08-08 17:36:28.428 ServerApp] Starting buffering for 6681993b-d18e-4aaf-80c4-602cd82c404c:9857bd76-b94d-481a-b4cb-43527136cb5c
+slurmstepd: error: *** JOB 43255083 ON holy8a24502 CANCELLED AT 2024-08-08T17:53:21 DUE TO TIME LIMIT ***
+[C 2024-08-08 17:53:21.201 ServerApp] received signal 15, stopping
