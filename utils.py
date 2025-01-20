@@ -15,7 +15,7 @@ def clean_data(n, p, data):
     return X
 
 def generate_synthetic_data(n, r, p, X, S=None):
-    Astar = np.random.normal(0, 1, size=(p, r)) / np.sqrt(p)
+    Astar = np.random.normal(0, 1, size=(p, r)) / (np.sqrt(p) * np.sqrt(r))
     Kstar = Astar @ Astar.T
 
     if not S:
@@ -60,8 +60,8 @@ def initialization(n, r, p, S, X, y):
             else:
                 return l - 1
         i, j, k = S[t]
-        transition_matrices[i][gap(j, i), gap(k, i)] = 1 if y[t] == -1 else 0
-        transition_matrices[i][gap(k, i), gap(j, i)] = 1 if y[t] == 1 else 0
+        transition_matrices[i][gap(j, i), gap(k, i)] = 0.99 if y[t] == -1 else 0.01
+        transition_matrices[i][gap(k, i), gap(j, i)] = 0.99 if y[t] == 1 else 0.01
 
     for i in range(n):
         d = np.max(np.sum(transition_matrices[i], axis=1))
@@ -76,7 +76,8 @@ def initialization(n, r, p, S, X, y):
         eigenvalues, eigenvectors = eig(transition_matrices[i], left=True, right=False)
         leading_index = np.where(np.isclose(eigenvalues, 1))[0][0]
         leading_eigenvector = eigenvectors[:, leading_index].real
-        dists_wo_i = np.log(np.max(leading_eigenvector, 0.01))
+        # print(leading_eigenvector)
+        dists_wo_i = np.log(np.maximum(leading_eigenvector, 0.001))
         if not np.all(np.isfinite(dists_wo_i)):
             print(i)
         dists = np.zeros(n)
@@ -86,10 +87,10 @@ def initialization(n, r, p, S, X, y):
 
     J = np.identity(n) - (np.ones((n, 1)) @ np.ones((1, n))) / n
     H = - J @ D @ J / 2
-    Xprime = J @ X_train
+    Xprime = J @ X
 
     XtHX = Xprime.T @ H @ Xprime / (n**2)
-    Sigma = Xprime.T @ Xprime / n
+    Sigma = Xprime.T @ Xprime / (n)
     eigenvalues, eigenvectors = eigh(a=XtHX, b=Sigma)
     U = eigenvectors[:, np.argsort(eigenvalues)[-r:]]
     Lambda = np.sort(eigenvalues)[-r:]

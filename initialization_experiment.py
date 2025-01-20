@@ -5,6 +5,7 @@ import torch
 from scipy import stats
 from scipy.sparse.linalg import lobpcg
 import pandas as pd
+from utils import *
 
 if __name__ == '__main__':
 
@@ -13,17 +14,12 @@ if __name__ == '__main__':
     r = 3
     p = 10
 
-    for n in range(100, 3000, 5): # [500, 1000, 1500, 2000, 2500, 3000, 3500, 4000]:
+    for n in range(1000, 3000, 100): # [500, 1000, 1500, 2000, 2500, 3000, 3500, 4000]:
         
-        print("Generating synthetic data...")
         X = clean_data(n, p, synthetic_data)
-        S, y, Astar, Kstar = generate_synthetic_data(n, r, p, X)
-        print(np.shape(X))
+        M, S, y, Astar, Kstar = generate_synthetic_data(n, r, p, X)
         
-        np.save("Astar.npy", Astar)
-        
-        print("Initializing...")
         A0 = initialization(n, r, p, S, X, y)
         
         print(n)
-        print(np.linalg.norm(Astar - A0))
+        print(np.linalg.norm(A0 @ A0.T - Kstar))
