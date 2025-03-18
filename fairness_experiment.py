@@ -1,5 +1,5 @@
 import numpy as np
-from folktables import ACSDataSource, ACSMobility
+from folktables import ACSDataSource, ACSMobility, ACSIncome
 from matplotlib import pyplot as plt
 import torch
 from scipy import stats
@@ -50,6 +50,7 @@ def sigmoid(z):
 def softmax(z):
     exponentials = np.exp(z - np.max(z))
     return exponentials / np.sum(exponentials)
+
 
 r = 3
 p = 30

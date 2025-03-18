@@ -2,9 +2,20 @@
  "cells": [
   {
    "cell_type": "code",
-   "execution_count": 5,
+   "execution_count": 2,
    "metadata": {},
-   "outputs": [],
+   "outputs": [
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "/Users/ceolson/miniforge3/lib/python3.12/site-packages/inFairness/utils/ndcg.py:37: FutureWarning: We've integrated functorch into PyTorch. As the final step of the integration, `functorch.vmap` is deprecated as of PyTorch 2.0 and will be deleted in a future version of PyTorch >= 2.3. Please use `torch.vmap` instead; see the PyTorch 2.0 release notes and/or the `torch.func` migration guide for more details https://pytorch.org/docs/main/func.migrating.html\n",
+      "  vect_normalized_discounted_cumulative_gain = vmap(\n",
+      "/Users/ceolson/miniforge3/lib/python3.12/site-packages/inFairness/utils/ndcg.py:48: FutureWarning: We've integrated functorch into PyTorch. As the final step of the integration, `functorch.vmap` is deprecated as of PyTorch 2.0 and will be deleted in a future version of PyTorch >= 2.3. Please use `torch.vmap` instead; see the PyTorch 2.0 release notes and/or the `torch.func` migration guide for more details https://pytorch.org/docs/main/func.migrating.html\n",
+      "  monte_carlo_vect_ndcg = vmap(vect_normalized_discounted_cumulative_gain, in_dims=(0,))\n"
+     ]
+    }
+   ],
    "source": [
     "import numpy as np\n",
     "from folktables import ACSDataSource, ACSMobility, ACSIncome\n",
@@ -27,7 +38,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 6,
+   "execution_count": 3,
    "metadata": {},
    "outputs": [],
    "source": [
@@ -69,7 +80,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 17,
+   "execution_count": 167,
    "metadata": {},
    "outputs": [],
    "source": [
@@ -80,17 +91,17 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 18,
+   "execution_count": 168,
    "metadata": {},
    "outputs": [],
    "source": [
-    "# data_source = ACSDataSource(survey_year='2018', horizon='1-Year', survey='person')\n",
-    "# acs_data = data_source.get_data(states=[\"TX\"], download=True)\n"
+    "data_source = ACSDataSource(survey_year='2018', horizon='1-Year', survey='person')\n",
+    "acs_data = data_source.get_data(states=[\"TX\"], download=True)\n"
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": 19,
+   "execution_count": 169,
    "metadata": {},
    "outputs": [],
    "source": [
@@ -103,30 +114,30 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 20,
+   "execution_count": 170,
    "metadata": {},
    "outputs": [],
    "source": [
-    "# features, labels, _ = ACSMobility.df_to_pandas(acs_data)"
+    "features, labels, _ = ACSMobility.df_to_pandas(acs_data)"
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": 21,
+   "execution_count": 171,
    "metadata": {},
    "outputs": [],
    "source": [
-    "synthetic_data = pd.DataFrame(np.random.normal(0, 1, size=(2 * n, p)))\n",
-    "labels = pd.DataFrame(np.random.uniform(0, 1, size=2 * n))"
+    "# features = pd.DataFrame(np.random.normal(0, 1, size=(2 * n, p)))\n",
+    "# labels = pd.DataFrame(np.random.uniform(0, 1, size=2 * n))"
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": 22,
+   "execution_count": 172,
    "metadata": {},
    "outputs": [],
    "source": [
-    "X = clean_data(2 * n, len(synthetic_data.columns), synthetic_data, cut_columns=False)\n",
+    "X = clean_data(2 * n, len(features.columns), features, cut_columns=False)\n",
     "X_train = X[:n]\n",
     "X_test = X[n:]\n",
     "\n",
@@ -137,47 +148,58 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 23,
-   "metadata": {},
-   "outputs": [],
-   "source": [
-    "p = np.shape(X)[-1]"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": null,
-   "metadata": {},
-   "outputs": [],
-   "source": [
-    "M, S, y, Astar, Kstar = generate_synthetic_data(n, r, p, X_train)\n",
-    "\n",
-    "print(np.shape(X_train), np.shape(X_test))"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 23,
-   "metadata": {
-    "scrolled": true
-   },
-   "outputs": [],
-   "source": [
-    "A0 = initialization(n, r, p, S, X_train, y)"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 24,
+   "execution_count": 173,
    "metadata": {},
    "outputs": [
     {
      "data": {
       "text/plain": [
-       "np.float64(98.83828408180007)"
+       "20"
       ]
      },
-     "execution_count": 24,
+     "execution_count": 173,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "p = np.shape(X)[-1]\n",
+    "p"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 174,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "Astar = np.random.normal(0, 1, size=(p, r)) / (np.sqrt(p) * np.sqrt(r))\n",
+    "Kstar = Astar @ Astar.T"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 175,
+   "metadata": {
+    "scrolled": true
+   },
+   "outputs": [],
+   "source": [
+    "A0 = np.random.normal(0, 1, size=(p, r)) / (np.sqrt(p) * np.sqrt(r))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 176,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "np.float64(0.7749293773359504)"
+      ]
+     },
+     "execution_count": 176,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -188,54 +210,70 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 18,
+   "execution_count": 177,
    "metadata": {},
    "outputs": [
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "10 tensor(0.6776, dtype=torch.float64, grad_fn=<MeanBackward0>) 254.70083458170689\n",
-      "20 tensor(0.6732, dtype=torch.float64, grad_fn=<MeanBackward0>) 251.66355344484222\n",
-      "30 tensor(0.7117, dtype=torch.float64, grad_fn=<MeanBackward0>) 248.47459567753896\n"
-     ]
-    },
-    {
-     "ename": "KeyboardInterrupt",
-     "evalue": "",
-     "output_type": "error",
-     "traceback": [
-      "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
-      "\u001b[0;31mKeyboardInterrupt\u001b[0m                         Traceback (most recent call last)",
-      "Cell \u001b[0;32mIn[18], line 8\u001b[0m\n\u001b[1;32m      6\u001b[0m M_tensor \u001b[38;5;241m=\u001b[39m torch\u001b[38;5;241m.\u001b[39mtensor(M, device\u001b[38;5;241m=\u001b[39m\u001b[38;5;124m\"\u001b[39m\u001b[38;5;124mcpu\u001b[39m\u001b[38;5;124m\"\u001b[39m)\n\u001b[1;32m      7\u001b[0m \u001b[38;5;28;01mfor\u001b[39;00m iterate \u001b[38;5;129;01min\u001b[39;00m \u001b[38;5;28mrange\u001b[39m(\u001b[38;5;241m100\u001b[39m):\n\u001b[0;32m----> 8\u001b[0m     loss \u001b[38;5;241m=\u001b[39m \u001b[43mL\u001b[49m\u001b[43m(\u001b[49m\u001b[43mA\u001b[49m\u001b[43m,\u001b[49m\u001b[43m \u001b[49m\u001b[43my_tensor\u001b[49m\u001b[43m,\u001b[49m\u001b[43m \u001b[49m\u001b[43mM_tensor\u001b[49m\u001b[43m)\u001b[49m\n\u001b[1;32m      9\u001b[0m     loss\u001b[38;5;241m.\u001b[39mbackward()\n\u001b[1;32m     10\u001b[0m     \u001b[38;5;28;01mwith\u001b[39;00m torch\u001b[38;5;241m.\u001b[39mno_grad():\n",
-      "File \u001b[0;32m~/Dropbox/Schools/Harvard/postgrad research/metric_learning/metric-learning/utils.py:104\u001b[0m, in \u001b[0;36mL\u001b[0;34m(A, y, M)\u001b[0m\n\u001b[1;32m    102\u001b[0m yMts \u001b[38;5;241m=\u001b[39m torch\u001b[38;5;241m.\u001b[39mreshape(y, (\u001b[38;5;241m-\u001b[39m\u001b[38;5;241m1\u001b[39m, \u001b[38;5;241m1\u001b[39m, \u001b[38;5;241m1\u001b[39m)) \u001b[38;5;241m*\u001b[39m M\n\u001b[1;32m    103\u001b[0m yMtAs \u001b[38;5;241m=\u001b[39m torch\u001b[38;5;241m.\u001b[39meinsum(\u001b[38;5;124m'\u001b[39m\u001b[38;5;124mbij,jk->bik\u001b[39m\u001b[38;5;124m'\u001b[39m, yMts, A)\n\u001b[0;32m--> 104\u001b[0m yMtAATs \u001b[38;5;241m=\u001b[39m \u001b[43mtorch\u001b[49m\u001b[38;5;241;43m.\u001b[39;49m\u001b[43meinsum\u001b[49m\u001b[43m(\u001b[49m\u001b[38;5;124;43m'\u001b[39;49m\u001b[38;5;124;43mbij,jk->bik\u001b[39;49m\u001b[38;5;124;43m'\u001b[39;49m\u001b[43m,\u001b[49m\u001b[43m \u001b[49m\u001b[43myMtAs\u001b[49m\u001b[43m,\u001b[49m\u001b[43m \u001b[49m\u001b[43mtorch\u001b[49m\u001b[38;5;241;43m.\u001b[39;49m\u001b[43mtranspose\u001b[49m\u001b[43m(\u001b[49m\u001b[43mA\u001b[49m\u001b[43m,\u001b[49m\u001b[43m \u001b[49m\u001b[38;5;241;43m0\u001b[39;49m\u001b[43m,\u001b[49m\u001b[43m \u001b[49m\u001b[38;5;241;43m1\u001b[39;49m\u001b[43m)\u001b[49m\u001b[43m)\u001b[49m\n\u001b[1;32m    105\u001b[0m TryMtAATs \u001b[38;5;241m=\u001b[39m torch\u001b[38;5;241m.\u001b[39meinsum(\u001b[38;5;124m'\u001b[39m\u001b[38;5;124mbii->b\u001b[39m\u001b[38;5;124m'\u001b[39m, yMtAATs)\n\u001b[1;32m    106\u001b[0m losses \u001b[38;5;241m=\u001b[39m torch\u001b[38;5;241m.\u001b[39mlog(\u001b[38;5;241m1\u001b[39m \u001b[38;5;241m+\u001b[39m torch\u001b[38;5;241m.\u001b[39mexp(\u001b[38;5;241m-\u001b[39mTryMtAATs))\n",
-      "File \u001b[0;32m~/miniforge3/lib/python3.12/site-packages/torch/functional.py:402\u001b[0m, in \u001b[0;36meinsum\u001b[0;34m(*args)\u001b[0m\n\u001b[1;32m    397\u001b[0m     \u001b[38;5;28;01mreturn\u001b[39;00m einsum(equation, \u001b[38;5;241m*\u001b[39m_operands)\n\u001b[1;32m    399\u001b[0m \u001b[38;5;28;01mif\u001b[39;00m \u001b[38;5;28mlen\u001b[39m(operands) \u001b[38;5;241m<\u001b[39m\u001b[38;5;241m=\u001b[39m \u001b[38;5;241m2\u001b[39m \u001b[38;5;129;01mor\u001b[39;00m \u001b[38;5;129;01mnot\u001b[39;00m opt_einsum\u001b[38;5;241m.\u001b[39menabled:\n\u001b[1;32m    400\u001b[0m     \u001b[38;5;66;03m# the path for contracting 0 or 1 time(s) is already optimized\u001b[39;00m\n\u001b[1;32m    401\u001b[0m     \u001b[38;5;66;03m# or the user has disabled using opt_einsum\u001b[39;00m\n\u001b[0;32m--> 402\u001b[0m     \u001b[38;5;28;01mreturn\u001b[39;00m \u001b[43m_VF\u001b[49m\u001b[38;5;241;43m.\u001b[39;49m\u001b[43meinsum\u001b[49m\u001b[43m(\u001b[49m\u001b[43mequation\u001b[49m\u001b[43m,\u001b[49m\u001b[43m \u001b[49m\u001b[43moperands\u001b[49m\u001b[43m)\u001b[49m  \u001b[38;5;66;03m# type: ignore[attr-defined]\u001b[39;00m\n\u001b[1;32m    404\u001b[0m path \u001b[38;5;241m=\u001b[39m \u001b[38;5;28;01mNone\u001b[39;00m\n\u001b[1;32m    405\u001b[0m \u001b[38;5;28;01mif\u001b[39;00m opt_einsum\u001b[38;5;241m.\u001b[39mis_available():\n",
-      "\u001b[0;31mKeyboardInterrupt\u001b[0m: "
+      "1000 tensor(0.5083, dtype=torch.float64, grad_fn=<MeanBackward0>) 0.06637228153986997\n",
+      "2000 tensor(0.5105, dtype=torch.float64, grad_fn=<MeanBackward0>) 0.04374176555941999\n",
+      "3000 tensor(0.5304, dtype=torch.float64, grad_fn=<MeanBackward0>) 0.04547819723562127\n",
+      "4000 tensor(0.5163, dtype=torch.float64, grad_fn=<MeanBackward0>) 0.04507119825817106\n",
+      "5000 tensor(0.5115, dtype=torch.float64, grad_fn=<MeanBackward0>) 0.03689029296333616\n",
+      "6000 tensor(0.5102, dtype=torch.float64, grad_fn=<MeanBackward0>) 0.03320806553516685\n",
+      "7000 tensor(0.5059, dtype=torch.float64, grad_fn=<MeanBackward0>) 0.03915279235921491\n",
+      "8000 tensor(0.5257, dtype=torch.float64, grad_fn=<MeanBackward0>) 0.05017862944586293\n",
+      "9000 tensor(0.5211, dtype=torch.float64, grad_fn=<MeanBackward0>) 0.04617225083549247\n",
+      "10000 tensor(0.4902, dtype=torch.float64, grad_fn=<MeanBackward0>) 0.04848673685787847\n",
+      "11000 tensor(0.5116, dtype=torch.float64, grad_fn=<MeanBackward0>) 0.03951240881280579\n",
+      "12000 tensor(0.5284, dtype=torch.float64, grad_fn=<MeanBackward0>) 0.04251651740568991\n",
+      "13000 tensor(0.5150, dtype=torch.float64, grad_fn=<MeanBackward0>) 0.05468408081089873\n",
+      "14000 tensor(0.5059, dtype=torch.float64, grad_fn=<MeanBackward0>) 0.046183989967196304\n",
+      "15000 tensor(0.5068, dtype=torch.float64, grad_fn=<MeanBackward0>) 0.0434264816573918\n",
+      "16000 tensor(0.5212, dtype=torch.float64, grad_fn=<MeanBackward0>) 0.04577561905733108\n",
+      "17000 tensor(0.4746, dtype=torch.float64, grad_fn=<MeanBackward0>) 0.04810573809784823\n",
+      "18000 tensor(0.4940, dtype=torch.float64, grad_fn=<MeanBackward0>) 0.0377278811094814\n",
+      "19000 tensor(0.4974, dtype=torch.float64, grad_fn=<MeanBackward0>) 0.04508347887280259\n",
+      "20000 tensor(0.5132, dtype=torch.float64, grad_fn=<MeanBackward0>) 0.04117057748059442\n"
      ]
     }
    ],
    "source": [
     "A_iterates = []\n",
-    "A = torch.tensor(A0, requires_grad=True, device=\"cpu\")\n",
+    "A = torch.tensor(A0, requires_grad=True, device=\"cpu\").to(torch.float64)\n",
     "dists = []\n",
     "\n",
-    "y_tensor = torch.tensor(y, device=\"cpu\")\n",
-    "M_tensor = torch.tensor(M, device=\"cpu\")\n",
-    "for iterate in range(100):\n",
-    "    loss = L(A, y_tensor, M_tensor)\n",
+    "for iterate in range(20000):\n",
+    "    S = np.random.choice(range(X_train.shape[0]), replace=True, size=(1000, 3))\n",
+    "    M = []\n",
+    "    for t in S:\n",
+    "        i, j, k = t\n",
+    "        Mt = np.outer(X_train[i], X[k]) + np.outer(X_train[k], X[i]) \\\n",
+    "            - np.outer(X_train[i], X[j]) - np.outer(X_train[j], X[i]) \\\n",
+    "            + np.outer(X_train[j], X[j]) - np.outer(X_train[k], X[k])\n",
+    "        M.append(Mt)\n",
+    "    M = np.array(M)\n",
+    "    \n",
+    "    probs = 1 / (1 + np.exp(-np.einsum('ijj->i', np.einsum('ijk,kl->ijl', M, Kstar))))\n",
+    "\n",
+    "    y = 2 * np.array(probs > np.random.random(np.shape(probs)), dtype=int) - 1\n",
+    "    \n",
+    "    loss = L(A, torch.Tensor(y), torch.Tensor(M).to(torch.float64))\n",
     "    loss.backward()\n",
     "    with torch.no_grad():\n",
-    "        A -= A.grad * 0.5\n",
+    "        A -= A.grad * 0.1\n",
     "        A_iterates.append(A.detach().cpu().numpy())\n",
     "        dists.append(np.linalg.norm(A.detach().cpu().numpy() @ A.detach().cpu().numpy().T - Kstar))\n",
     "        A.grad.zero_()\n",
-    "    if iterate % 10 == 9:\n",
+    "    if iterate % 1000 == -1 % 1000:\n",
     "        print(iterate + 1, loss, np.linalg.norm(A.detach().cpu().numpy() @ A.detach().cpu().numpy().T - Kstar))"
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": 13,
+   "execution_count": 178,
    "metadata": {},
    "outputs": [],
    "source": [
@@ -244,16 +282,16 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 14,
+   "execution_count": 179,
    "metadata": {},
    "outputs": [
     {
      "data": {
       "text/plain": [
-       "np.float64(0.013058013213234212)"
+       "np.float64(0.04117057748059442)"
       ]
      },
-     "execution_count": 14,
+     "execution_count": 179,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -264,38 +302,15 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 15,
+   "execution_count": 180,
    "metadata": {},
    "outputs": [],
    "source": [
-    "# lin1star = np.random.normal(0, 1, size=(p, 20))\n",
-    "# lin2star = np.random.normal(0, 1, size=(20, 20))\n",
-    "# lin3star = np.random.normal(0, 1, size=20)\n",
-    "# epsilon = np.random.normal(0, 0.01, size=2 * n)\n",
+    "X_train_t = torch.Tensor(np.array(X_train))\n",
+    "Y_train_t = torch.Tensor(np.array(Y_train))\n",
     "\n",
-    "# Y_probs = relu(np.einsum(\"ij,jk->ik\", X, lin1star))\n",
-    "# Y_probs = relu(np.einsum(\"ij,jk->ik\", Y_probs, lin2star))\n",
-    "# Y_probs = sigmoid(np.einsum(\"ij,j->i\", Y_probs, lin3star))\n",
-    "\n",
-    "Y_probs = np.sign(X[:, 0]) / 10 + 0.5\n",
-    "\n",
-    "Y = (np.random.random(size=2 * n) < Y_probs).astype(int)\n",
-    "\n",
-    "Y_train = Y[:n]\n",
-    "Y_test = Y[n:]"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 16,
-   "metadata": {},
-   "outputs": [],
-   "source": [
-    "X_train_t = torch.Tensor(X_train)\n",
-    "Y_train_t = torch.Tensor(Y_train)\n",
-    "\n",
-    "X_test_t = torch.Tensor(X_test)\n",
-    "Y_test_t = torch.Tensor(Y_test)\n",
+    "X_test_t = torch.Tensor(np.array(X_test))\n",
+    "Y_test_t = torch.Tensor(np.array(Y_test))\n",
     "\n",
     "train_dataset = TrainDataset(X_train_t, Y_train_t)\n",
     "test_dataset = TrainDataset(X_test_t, Y_test_t)\n",
@@ -306,7 +321,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 17,
+   "execution_count": 181,
    "metadata": {},
    "outputs": [],
    "source": [
@@ -325,7 +340,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 18,
+   "execution_count": 182,
    "metadata": {
     "scrolled": true
    },
@@ -337,11 +352,11 @@
     "\n",
     "network_standard.train()\n",
     "\n",
-    "for epoch in range(1000):\n",
+    "for epoch in range(200):\n",
     "\n",
     "    for x, y in train_dl:\n",
     "        optimizer.zero_grad()\n",
-    "        y_pred = network_standard(x).squeeze()\n",
+    "        y_pred = network_standard(x)\n",
     "        loss = loss_fn(y_pred, y)\n",
     "        loss.backward()\n",
     "        optimizer.step()"
@@ -349,27 +364,36 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 19,
+   "execution_count": 183,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "standard_loss = loss"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 191,
    "metadata": {},
    "outputs": [
     {
      "data": {
       "text/plain": [
-       "tensor(1.0178e-07, grad_fn=<BinaryCrossEntropyBackward0>)"
+       "tensor(0.0468, grad_fn=<BinaryCrossEntropyBackward0>)"
       ]
      },
-     "execution_count": 19,
+     "execution_count": 191,
      "metadata": {},
      "output_type": "execute_result"
     }
    ],
    "source": [
-    "loss"
+    "standard_loss"
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": 20,
+   "execution_count": 184,
    "metadata": {},
    "outputs": [],
    "source": [
@@ -382,7 +406,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 21,
+   "execution_count": 185,
    "metadata": {},
    "outputs": [],
    "source": [
@@ -392,7 +416,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 22,
+   "execution_count": 186,
    "metadata": {},
    "outputs": [],
    "source": [
@@ -401,7 +425,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 23,
+   "execution_count": 187,
    "metadata": {},
    "outputs": [],
    "source": [
@@ -415,7 +439,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 24,
+   "execution_count": 188,
    "metadata": {},
    "outputs": [],
    "source": [
@@ -424,7 +448,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 28,
+   "execution_count": 189,
    "metadata": {
     "scrolled": true
    },
@@ -433,26 +457,29 @@
     "\n",
     "alg.train()\n",
     "\n",
-    "for epoch in range(2000):\n",
+    "for epoch in range(4000):\n",
     "    for x, y in train_dl:\n",
     "        optimizer.zero_grad()\n",
     "        result = alg(x, torch.reshape(y, (-1, 1)))\n",
     "        result.loss.backward()\n",
-    "        optimizer.step()"
+    "        optimizer.step()\n",
+    "    if result.loss < standard_loss:\n",
+    "        print(\"Stopping\")\n",
+    "        break"
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": 29,
+   "execution_count": 190,
    "metadata": {},
    "outputs": [
     {
      "data": {
       "text/plain": [
-       "tensor(1.0310e-10, grad_fn=<MeanBackward0>)"
+       "tensor(0.2626, grad_fn=<MeanBackward0>)"
       ]
      },
-     "execution_count": 29,
+     "execution_count": 190,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -463,7 +490,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 30,
+   "execution_count": 192,
    "metadata": {},
    "outputs": [],
    "source": [
@@ -476,17 +503,13 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 31,
+   "execution_count": 193,
    "metadata": {},
    "outputs": [
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "/Users/ceolson/miniforge3/lib/python3.12/site-packages/inFairness/auditor/auditor.py:48: UserWarning: Using a target size (torch.Size([100])) that is different to the input size (torch.Size([100, 1])). This will likely lead to incorrect results due to broadcasting. Please ensure they have the same size.\n",
-      "  loss_vals_adversarial = loss_fn(Y_pred_worst, Y_audit, reduction=\"none\")\n",
-      "/Users/ceolson/miniforge3/lib/python3.12/site-packages/inFairness/auditor/auditor.py:49: UserWarning: Using a target size (torch.Size([100])) that is different to the input size (torch.Size([100, 1])). This will likely lead to incorrect results due to broadcasting. Please ensure they have the same size.\n",
-      "  loss_vals_original = loss_fn(Y_pred_original, Y_audit, reduction=\"none\")\n",
       "/Users/ceolson/miniforge3/lib/python3.12/site-packages/inFairness/auditor/auditor.py:54: RuntimeWarning: divide by zero encountered in divide\n",
       "  loss_ratio = np.divide(loss_vals_adversarial, loss_vals_original)\n",
       "/Users/ceolson/miniforge3/lib/python3.12/site-packages/inFairness/auditor/auditor.py:54: RuntimeWarning: invalid value encountered in divide\n",
@@ -496,10 +519,10 @@
     {
      "data": {
       "text/plain": [
-       "AuditorResponse(lossratio_mean=np.float32(1.5649743), lossratio_std=np.float32(2.6800578), lower_bound=np.float64(1.520000991622019), threshold=None, pval=None, confidence=None, is_model_fair=None)"
+       "AuditorResponse(lossratio_mean=np.float32(1.2119776), lossratio_std=np.float32(1.60599), lower_bound=np.float64(1.022320441179178), threshold=None, pval=None, confidence=None, is_model_fair=None)"
       ]
      },
-     "execution_count": 31,
+     "execution_count": 193,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -510,16 +533,16 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 32,
+   "execution_count": 194,
    "metadata": {},
    "outputs": [
     {
      "data": {
       "text/plain": [
-       "AuditorResponse(lossratio_mean=np.float32(1.5716246), lossratio_std=np.float32(3.23267), lower_bound=np.float64(1.5173780843025653), threshold=None, pval=None, confidence=None, is_model_fair=None)"
+       "AuditorResponse(lossratio_mean=np.float32(1.276018), lossratio_std=np.float32(1.2474141), lower_bound=np.float64(1.128706390174043), threshold=None, pval=None, confidence=None, is_model_fair=None)"
       ]
      },
-     "execution_count": 32,
+     "execution_count": 194,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -530,16 +553,16 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 33,
+   "execution_count": 195,
    "metadata": {},
    "outputs": [
     {
      "data": {
       "text/plain": [
-       "np.float32(463.2955)"
+       "np.float32(174.7098)"
       ]
      },
-     "execution_count": 33,
+     "execution_count": 195,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -555,16 +578,16 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 34,
+   "execution_count": 196,
    "metadata": {},
    "outputs": [
     {
      "data": {
       "text/plain": [
-       "np.float32(425.72626)"
+       "np.float32(292.29953)"
       ]
      },
-     "execution_count": 34,
+     "execution_count": 196,
      "metadata": {},
      "output_type": "execute_result"
     }
