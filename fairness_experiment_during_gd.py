@@ -74,7 +74,7 @@ for iterate in range(10 * n):
         A.grad.zero_()
     if iterate % 50 == -1 % 50:
         print(iterate + 1, loss, dists[-1])
-        standard_loss, audit, audit_true, worst_ratio, worst_ratio_true = learn_fair_classifiers(
+        standard_loss, fair_loss, audit, audit_true, worst_ratio, worst_ratio_true = learn_fair_classifiers(
         	X_train, Y_train, X_test, Y_test, A.detach().cpu().numpy(), Astar)
         
         results.loc[len(results.index)] = {

@@ -183,7 +183,7 @@ def learn_fair_classifiers(X_train, Y_train, X_test, Y_test, Ahat, Astar):
             loss.backward()
             optimizer.step()
 
-    standard_loss = loss.value
+    standard_loss = loss
 
     input_metric = MahalanobisDistances()
     input_metric.fit(torch.Tensor(Ahat @ Ahat.T))
@@ -219,7 +219,7 @@ def learn_fair_classifiers(X_train, Y_train, X_test, Y_test, Ahat, Astar):
             print("Stopping")
             break
 
-    fair_loss = result.loss.value
+    fair_loss = result.loss
 
     auditor = SenSeIAuditor(input_metric, output_metric, auditor_nsteps, auditor_lr)
     auditor_true = SenSeIAuditor(input_metric_true, output_metric, auditor_nsteps, auditor_lr)
@@ -242,5 +242,4 @@ def learn_fair_classifiers(X_train, Y_train, X_test, Y_test, Ahat, Astar):
     worst_ratio_true = np.max(ratios[~np.isnan(ratios)])
 
 
-    return standard_loss, audit, audit_true, worst_ratio, worst_ratio_true
-
+    return standard_loss.detach().numpy(), fair_loss.detach().numpy(), audit, audit_true, worst_ratio, worst_ratio_true
