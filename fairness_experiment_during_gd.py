@@ -82,12 +82,12 @@ for iterate in range(10 * n):
             "AA^T to Kstar": dists[-1], 
             "Standard Train Loss": standard_loss, 
             "Fair Train Loss": fair_loss, 
-            "Audit Mean": audit["lossratio_mean"], 
-            "Audit Std": audit["lossratio_std"], 
-            "Audit Lower Bound": audit["lower_bound"],
-            "True Audit Mean": audit_true["lossratio_mean"], 
-            "True Audit Std": audit_true["lossratio_std"], 
-            "True Audit Lower Bound": audit_true["lower_bound"],
+            "Audit Mean": audit.lossratio_mean, 
+            "Audit Std": audit.lossratio_std, 
+            "Audit Lower Bound": audit.lower_bound,
+            "True Audit Mean": audit_true.lossratio_mean, 
+            "True Audit Std": audit_true.lossratio_std, 
+            "True Audit Lower Bound": audit_true.lower_bound,
             "Worst Ratio": worst_ratio, 
             "Worst Ratio True": worst_ratio_true
         }
