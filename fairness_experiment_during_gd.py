@@ -19,7 +19,7 @@ import data
 
 r = 3
 p = 30
-n = 100
+n = 120
 
 data_source = ACSDataSource(survey_year='2018', horizon='1-Year', survey='person')
 acs_data = data_source.get_data(states=["TX"], download=True)
@@ -64,7 +64,7 @@ dists = []
 y_tensor = torch.tensor(y, device="cpu")
 M_tensor = torch.tensor(M, device="cpu")
 
-for iterate in range(10 * n):
+for iterate in range(200 * n):
     loss = L(A, y_tensor, M_tensor)
     loss.backward()
     with torch.no_grad():
