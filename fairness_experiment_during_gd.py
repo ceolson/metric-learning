@@ -19,7 +19,7 @@ import data
 
 r = 3
 p = 30
-n = 120
+n = 160
 
 data_source = ACSDataSource(survey_year='2018', horizon='1-Year', survey='person')
 acs_data = data_source.get_data(states=["TX"], download=True)
@@ -91,6 +91,8 @@ for iterate in range(200 * n):
             "Worst Ratio": worst_ratio, 
             "Worst Ratio True": worst_ratio_true
         }
+
+        results.to_csv("fairness_during_gd_out.csv")
 
 Ahat = A_iterates[-1]
 
