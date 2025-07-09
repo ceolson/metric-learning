@@ -7,64 +7,80 @@ from scipy.sparse.linalg import lobpcg
 import pandas as pd
 from utils import *
 
-if __name__ == '__main__':
+import numpy as np
+from folktables import ACSDataSource, ACSMobility, ACSIncome
+from matplotlib import pyplot as plt
+import torch
+from scipy import stats
+from scipy.sparse.linalg import lobpcg
+from scipy.linalg import eigh, eig
+import pandas as pd
+from inFairness.distances import MahalanobisDistances, SquaredEuclideanDistance, LogisticRegSensitiveSubspace
+from inFairness.fairalgo import SenSeI
+from inFairness.auditor import SenSeIAuditor, SenSRAuditor
+from tqdm.auto import tqdm
+from utils import *
 
-    # synthetic_data = pd.DataFrame(np.random.normal(size=(1000, 50)))
-    synthetic_data = pd.DataFrame(np.random.uniform(low=-1, high=1, size=(1000, 50)))
-
-    r = 3
-    p = 30
-    n = 400
-
-
-    data_source = ACSDataSource(survey_year='2018', horizon='1-Year', survey='person')
-    acs_data = data_source.get_data(states=["AL"], download=True)
-
-    acs_data_cleaned = acs_data.select_dtypes(include="float64")
-    acs_data_cleaned = acs_data_cleaned.loc[:, ~(acs_data_cleaned.isna().mean(axis=0) > 0.78)]
-    acs_data_cleaned = acs_data_cleaned.loc[~acs_data_cleaned.isna().any(axis=1)]
-    acs_data_cleaned = acs_data_cleaned.loc[:, (acs_data_cleaned.var(axis=0) > 0)]
-    acs_data_cleaned = acs_data_cleaned.sample(frac=1, axis=0)
-    print(np.shape(np.array(acs_data_cleaned)))
+from torch.utils.data import Dataset
+from torch.utils.data import DataLoader
+import data
 
 
-    print("Generating synthetic data...")
-    X = clean_data(n, p, synthetic_data)
-    M, S, y, Astar, Kstar = generate_synthetic_data(n, r, p, X)
-    print(np.shape(X))
+r = 3
+p = 30
+n = 160
 
-    np.save("Astar.npy", Astar)
+data_source = ACSDataSource(survey_year='2018', horizon='1-Year', survey='person')
+acs_data = data_source.get_data(states=["TX"], download=True)
 
-    print("Initializing...")
-    A0 = initialization(n, r, p, S, X, y)
+results = pd.DataFrame(columns=[
+        "Iterate",
+        "AA^T to Kstar"
+    ])
 
-    print(np.linalg.norm(Astar - A0))
+features, labels, _ = ACSMobility.df_to_pandas(acs_data)
 
+X = clean_data(2 * n, len(features.columns), features, cut_columns=False)
+X_train = X[:n]
+X_test = X[n:]
 
+Y = labels.head(2 * n)
+Y_train = Y[:n]
+Y_test = Y[n:]
 
-    print("Starting gradient descent...")
+p = np.shape(X)[-1]
 
-    A_iterates = []
-    A = torch.tensor(A0, requires_grad=True, device="cuda")
-    dists = []
+M, S, y, Astar, Kstar = generate_synthetic_data(n, r, p, X_train)
 
-    y_tensor = torch.tensor(y, device="cuda")
-    M_tensor = torch.tensor(M, device="cuda")
-    for iterate in range(2000):
-        loss = L(A, y_tensor, M_tensor)
-        loss.backward()
-        with torch.no_grad():
-            A -= A.grad * 0.1
-            A_iterates.append(A.detach().cpu().numpy())
-            dists.append(np.linalg.norm(A.detach().cpu().numpy() @ A.detach().cpu().numpy().T - Kstar))
-            A.grad.zero_()
-        if iterate % 10 == 9:
-            print(iterate + 1, loss, np.linalg.norm(A.detach().cpu().numpy() @ A.detach().cpu().numpy().T - Kstar))
+A0 = np.random.normal(0, 1, size=(p, r)) / (np.sqrt(p) * np.sqrt(r)) # initialization(n, r, p, S, X_train, y)
+print(Astar)
+print(A0)
 
-    np.save("A_iterates.npy", A_iterates)
+A_iterates = []
+A = torch.tensor(A0, requires_grad=True, device="cpu").to(torch.float64)
+dists = []
 
-    plt.plot(dists)
-    plt.xlabel("iteration")
-    plt.ylabel("||AA^T - K*||")
+y_tensor = torch.tensor(y, device="cpu")
+M_tensor = torch.tensor(M, device="cpu")
 
-    plt.savefig("gd.png")
+for iterate in range(200 * n):
+    loss = L(A, y_tensor, M_tensor)
+    loss.backward()
+    with torch.no_grad():
+        A -= A.grad * 0.01
+        A_iterates.append(A.detach().cpu().numpy())
+        dists.append(np.linalg.norm(A.detach().cpu().numpy() @ A.detach().cpu().numpy().T - Kstar))
+        A.grad.zero_()
+    if iterate % 50 == -1 % 50:
+        results.loc[len(results.index)] = {
+            "Iterate": iterate,
+            "AA^T to Kstar": dists[-1]
+        }
+
+        results.to_csv("gd_out.csv")
+
+Ahat = A_iterates[-1]
+
+print("AA^T to Kstar:", np.linalg.norm(Ahat @ Ahat.T - Kstar))
+
+results.to_csv("gd_out.csv")
