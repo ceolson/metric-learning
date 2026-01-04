@@ -18,8 +18,8 @@ import data
 
 
 r = 3
-p = 30
-n = 160
+p = 20
+n = 200
 
 data_source = ACSDataSource(survey_year='2018', horizon='1-Year', survey='person')
 acs_data = data_source.get_data(states=["TX"], download=True)
@@ -72,7 +72,7 @@ for iterate in range(200 * n):
         A_iterates.append(A.detach().cpu().numpy())
         dists.append(np.linalg.norm(A.detach().cpu().numpy() @ A.detach().cpu().numpy().T - Kstar))
         A.grad.zero_()
-    if iterate % 50 == -1 % 50:
+    if (iterate % 50 == -1 % 50) or (iterate < 100):
         print(iterate + 1, loss, dists[-1])
         standard_loss, fair_loss, audit, audit_true, worst_ratio, worst_ratio_true = learn_fair_classifiers(
         	X_train, Y_train, X_test, Y_test, A.detach().cpu().numpy(), Astar)

@@ -82,7 +82,7 @@ for iterate in range(20000):
         dists.append(np.linalg.norm(A.detach().cpu().numpy() @ A.detach().cpu().numpy().T - Kstar))
         A.grad.zero_()
 	    
-	if iterate % 50 == -1 % 50:
+    if (iterate % 50 == -1 % 50) or (iterate < 100):
         print(iterate + 1, loss, dists[-1])
         standard_loss, fair_loss, audit, audit_true, worst_ratio, worst_ratio_true = learn_fair_classifiers(
         	X_train, Y_train, X_test, Y_test, A.detach().cpu().numpy(), Astar)

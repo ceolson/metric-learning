@@ -1,13 +1,4 @@
 import numpy as np
-from folktables import ACSDataSource, ACSMobility
-from matplotlib import pyplot as plt
-import torch
-from scipy import stats
-from scipy.sparse.linalg import lobpcg
-import pandas as pd
-from utils import *
-
-import numpy as np
 from folktables import ACSDataSource, ACSMobility, ACSIncome
 from matplotlib import pyplot as plt
 import torch
@@ -27,26 +18,29 @@ import data
 
 
 r = 3
-p = 30
-n = 160
-
-data_source = ACSDataSource(survey_year='2018', horizon='1-Year', survey='person')
-acs_data = data_source.get_data(states=["TX"], download=True)
+p = 20
+n = 200
 
 results = pd.DataFrame(columns=[
         "Iterate",
         "AA^T to Kstar"
     ])
 
+chi = "ACS"
+data_source = ACSDataSource(survey_year='2018', horizon='1-Year', survey='person')
+acs_data = data_source.get_data(states=["TX"], download=True)
 features, labels, _ = ACSMobility.df_to_pandas(acs_data)
+
+# chi = 20
+# synthetic_covariance_diag = chi * np.ones(p)
+# synthetic_covariance_indices = np.random.choice(range(p), size=int(p / 2), replace=False)
+# synthetic_covariance_diag[synthetic_covariance_indices] = 1 / chi
+# features = pd.DataFrame(np.random.multivariate_normal(np.zeros(p), np.diag(synthetic_covariance_diag), size=n * 2))
+# print("chi:", chi)
 
 X = clean_data(2 * n, len(features.columns), features, cut_columns=False)
 X_train = X[:n]
 X_test = X[n:]
-
-Y = labels.head(2 * n)
-Y_train = Y[:n]
-Y_test = Y[n:]
 
 p = np.shape(X)[-1]
 
@@ -63,7 +57,7 @@ dists = []
 y_tensor = torch.tensor(y, device="cpu")
 M_tensor = torch.tensor(M, device="cpu")
 
-for iterate in range(200 * n):
+for iterate in range(100 * n):
     loss = L(A, y_tensor, M_tensor)
     loss.backward()
     with torch.no_grad():
@@ -77,10 +71,10 @@ for iterate in range(200 * n):
             "AA^T to Kstar": dists[-1]
         }
 
-        results.to_csv("gd_out.csv")
+        results.to_csv("gd_out_{}.csv".format(chi))
 
 Ahat = A_iterates[-1]
 
 print("AA^T to Kstar:", np.linalg.norm(Ahat @ Ahat.T - Kstar))
 
-results.to_csv("gd_out.csv")
+results.to_csv("gd_out_{}.csv".format(chi))
