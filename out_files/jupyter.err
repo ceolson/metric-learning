@@ -1,30 +1,30 @@
-/var/slurmd/spool/slurmd/job120066/slurm_script: line 14: mamba: command not found
-/var/slurmd/spool/slurmd/job120066/slurm_script: line 23: cd: /n/home10/colson/helpers: No such file or directory
-/var/slurmd/spool/slurmd/job120066/slurm_script: line 25: kill: `': not a pid or valid job spec
+/var/slurmd/spool/slurmd/job44922318/slurm_script: line 23: kill: `': not a pid or valid job spec
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
-  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100   450  100   450    0     0  90000      0 --:--:-- --:--:-- --:--:-- 90000
-/var/slurmd/spool/slurmd/job120066/slurm_script: line 30: jq: command not found
-[I 2025-01-19 23:34:01.997 ServerApp] jupyter_lsp | extension was successfully linked.
-[I 2025-01-19 23:34:02.030 ServerApp] jupyter_server_terminals | extension was successfully linked.
-[W 2025-01-19 23:34:02.053 LabApp] 'token' has moved from NotebookApp to ServerApp. This config will be passed to ServerApp. Be sure to update your config before our next release.
-[W 2025-01-19 23:34:02.062 ServerApp] ServerApp.token config is deprecated in 2.0. Use IdentityProvider.token.
-[I 2025-01-19 23:34:02.062 ServerApp] jupyterlab | extension was successfully linked.
-[I 2025-01-19 23:34:02.092 ServerApp] notebook | extension was successfully linked.
-[I 2025-01-19 23:34:13.817 ServerApp] notebook_shim | extension was successfully linked.
-[I 2025-01-19 23:34:14.549 ServerApp] notebook_shim | extension was successfully loaded.
-[I 2025-01-19 23:34:14.557 ServerApp] jupyter_lsp | extension was successfully loaded.
-[I 2025-01-19 23:34:14.560 ServerApp] jupyter_server_terminals | extension was successfully loaded.
-[I 2025-01-19 23:34:15.056 LabApp] JupyterLab extension loaded from /n/home10/colson/.conda/envs/gpu/lib/python3.12/site-packages/jupyterlab
-[I 2025-01-19 23:34:15.056 LabApp] JupyterLab application directory is /n/home10/colson/.conda/envs/gpu/share/jupyter/lab
-[I 2025-01-19 23:34:15.084 LabApp] Extension Manager is 'pypi'.
-[I 2025-01-19 23:34:15.111 ServerApp] jupyterlab | extension was successfully loaded.
-[I 2025-01-19 23:34:15.207 ServerApp] notebook | extension was successfully loaded.
-[I 2025-01-19 23:34:15.209 ServerApp] Serving notebooks from local directory: /n/home10/colson
-[I 2025-01-19 23:34:15.209 ServerApp] Jupyter Server 2.14.0 is running at:
-[I 2025-01-19 23:34:15.209 ServerApp] http://holy8a27410.rc.fas.harvard.edu:8889/lab?token=...
-[I 2025-01-19 23:34:15.209 ServerApp]     http://127.0.0.1:8889/lab?token=...
-[I 2025-01-19 23:34:15.209 ServerApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
-[I 2025-01-19 23:34:15.594 ServerApp] Skipped non-installed server(s): bash-language-server, dockerfile-language-server-nodejs, javascript-typescript-langserver, jedi-language-server, julia-language-server, pyright, python-language-server, python-lsp-server, r-languageserver, sql-language-server, texlab, typescript-language-server, unified-language-server, vscode-css-languageserver-bin, vscode-html-languageserver-bin, vscode-json-languageserver-bin, yaml-language-server
-slurmstepd: error: *** JOB 120066 ON holy8a27410 CANCELLED AT 2025-01-19T23:35:55 ***
-[C 2025-01-19 23:35:55.528 ServerApp] received signal 15, stopping
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100   444  100   444    0     0   108k      0 --:--:-- --:--:-- --:--:--  108k
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100   444  100   444    0     0   108k      0 --:--:-- --:--:-- --:--:--  108k
+[I 2025-11-06 13:31:45.929 ServerApp] jupyter_lsp | extension was successfully linked.
+[I 2025-11-06 13:31:45.949 ServerApp] jupyter_server_terminals | extension was successfully linked.
+[W 2025-11-06 13:31:45.964 LabApp] 'token' has moved from NotebookApp to ServerApp. This config will be passed to ServerApp. Be sure to update your config before our next release.
+[W 2025-11-06 13:31:45.966 ServerApp] ServerApp.token config is deprecated in 2.0. Use IdentityProvider.token.
+[I 2025-11-06 13:31:45.967 ServerApp] jupyterlab | extension was successfully linked.
+[I 2025-11-06 13:31:45.984 ServerApp] notebook | extension was successfully linked.
+[I 2025-11-06 13:31:52.628 ServerApp] notebook_shim | extension was successfully linked.
+[I 2025-11-06 13:31:53.081 ServerApp] notebook_shim | extension was successfully loaded.
+[I 2025-11-06 13:31:53.085 ServerApp] jupyter_lsp | extension was successfully loaded.
+[I 2025-11-06 13:31:53.088 ServerApp] jupyter_server_terminals | extension was successfully loaded.
+[I 2025-11-06 13:31:53.415 LabApp] JupyterLab extension loaded from /n/home10/colson/.conda/envs/gpu/lib/python3.12/site-packages/jupyterlab
+[I 2025-11-06 13:31:53.415 LabApp] JupyterLab application directory is /n/home10/colson/.conda/envs/gpu/share/jupyter/lab
+[I 2025-11-06 13:31:53.421 LabApp] Extension Manager is 'pypi'.
+[I 2025-11-06 13:31:53.431 ServerApp] jupyterlab | extension was successfully loaded.
+[I 2025-11-06 13:31:53.507 ServerApp] notebook | extension was successfully loaded.
+[I 2025-11-06 13:31:53.508 ServerApp] Serving notebooks from local directory: /n/home10/colson
+[I 2025-11-06 13:31:53.508 ServerApp] Jupyter Server 2.14.0 is running at:
+[I 2025-11-06 13:31:53.508 ServerApp] http://holy8a26103.rc.fas.harvard.edu:8889/lab?token=...
+[I 2025-11-06 13:31:53.508 ServerApp]     http://127.0.0.1:8889/lab?token=...
+[I 2025-11-06 13:31:53.508 ServerApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
+[I 2025-11-06 13:31:53.827 ServerApp] Skipped non-installed server(s): bash-language-server, dockerfile-language-server-nodejs, javascript-typescript-langserver, jedi-language-server, julia-language-server, pyright, python-language-server, python-lsp-server, r-languageserver, sql-language-server, texlab, typescript-language-server, unified-language-server, vscode-css-languageserver-bin, vscode-html-languageserver-bin, vscode-json-languageserver-bin, yaml-language-server
+[2025-11-06T17:31:41.850] error: *** JOB 44922318 ON holy8a26103 CANCELLED AT 2025-11-06T17:31:41 DUE TO TIME LIMIT ***
+[C 2025-11-06 17:31:41.860 ServerApp] received signal 15, stopping

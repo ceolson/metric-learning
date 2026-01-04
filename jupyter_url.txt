@@ -1,1 +1,1 @@
-/lab?token=c63f0bc7000ede187e773fae0bd7b3264879b25025cc40c9
+https://01cc-140-247-111-5.ngrok-free.app/lab?token=c63f0bc7000ede187e773fae0bd7b3264879b25025cc40c9
