@@ -265,3 +265,4 @@ def learn_fair_classifiers(X_train, Y_train, X_test, Y_test, Ahat, Astar):
 
 
     return standard_loss.detach().numpy(), fair_loss.detach().numpy(), audit, audit_true, worst_ratio, worst_ratio_true
+

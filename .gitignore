@@ -1,3 +1,8 @@
 *.npy
 data/
 .ipynb_checkpoints/
+*.csv
+out_files/
+*.zip
+*.npz
+__pycache__/
