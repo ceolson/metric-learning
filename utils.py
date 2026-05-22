@@ -5,6 +5,7 @@ import torch
 from scipy import stats
 from scipy.sparse.linalg import lobpcg
 from scipy.linalg import eigh, eig
+from sklearn.decomposition import PCA
 import pandas as pd
 from inFairness.distances import MahalanobisDistances, SquaredEuclideanDistance, LogisticRegSensitiveSubspace
 from inFairness.fairalgo import SenSeI
@@ -29,6 +30,19 @@ class TrainDataset(Dataset):
     def __len__(self):
         return len(self.labels)
 
+class LabelerNeuralNet(torch.nn.Module):
+    def __init__(self, p):
+        super(LabelerNeuralNet, self).__init__()
+        self.lin1 = torch.nn.Linear(p, 2, bias=False)
+        self.lin2 = torch.nn.Linear(2, 1, bias=False)
+
+        torch.nn.init.xavier_uniform_(self.lin1.weight)
+        torch.nn.init.xavier_uniform_(self.lin2.weight)
+
+    def forward(self, x):
+        x = torch.nn.functional.sigmoid(self.lin1(x))
+        return torch.nn.functional.sigmoid(self.lin2(x))
+
 class NeuralNet(torch.nn.Module):
     def __init__(self, p):
         super(NeuralNet, self).__init__()
@@ -36,9 +50,13 @@ class NeuralNet(torch.nn.Module):
         self.lin2 = torch.nn.Linear(20, 20, bias=False)
         self.lin3 = torch.nn.Linear(20, 1, bias=False)
 
+        torch.nn.init.xavier_uniform_(self.lin1.weight)
+        torch.nn.init.xavier_uniform_(self.lin2.weight)
+        torch.nn.init.xavier_uniform_(self.lin3.weight)
+
     def forward(self, x):
-        x = torch.nn.functional.relu(self.lin1(x))
-        x = torch.nn.functional.relu(self.lin2(x))
+        x = torch.nn.functional.sigmoid(self.lin1(x))
+        x = torch.nn.functional.sigmoid(self.lin2(x))
         return torch.nn.functional.sigmoid(self.lin3(x))
 
 def relu(z):
@@ -54,11 +72,15 @@ def softmax(z):
 def m_dist2(x1, x2, K):
     return (x2 - x1).T @ K @ (x2 - x1)
 
-def clean_data(n, p, data, cut_columns=True):
+def clean_data(n, p, data, cut_columns=False, pca=True):
     X = data.head(n)
+    X = X.astype(float)
     X = X.loc[:, X.var(axis=0) > 0]
     if cut_columns:
         X = X.sample(p, axis=1)
+    if pca:
+        pca = PCA(n_components=p)
+        X = pca.fit_transform(X)
     X = np.array(stats.zscore(np.array(X), axis=0))
     return X
 
@@ -243,3 +265,4 @@ def learn_fair_classifiers(X_train, Y_train, X_test, Y_test, Ahat, Astar):
 
 
     return standard_loss.detach().numpy(), fair_loss.detach().numpy(), audit, audit_true, worst_ratio, worst_ratio_true
+
